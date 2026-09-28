@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>InteriorHub — One workspace for your interior project</title>
+<style>
+:root{--bg:#f6f2ec;--surface:#fff;--surface2:#fbf8f4;--ink:#28241f;--muted:#766f66;--line:#e7dfd5;--accent:#8b6b4d;--accent2:#d9c6ae;--green:#47755a;--red:#a95850;--amber:#916b39;--shadow:0 8px 28px rgba(49,38,27,.07)}
+*{box-sizing:border-box}html,body,#root{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{min-height:100vh}.top{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:20}.brand{font-size:21px;font-weight:850;letter-spacing:-.7px}.brand span{color:var(--accent)}.top-right{display:flex;align-items:center;gap:10px}.role{border:1px solid var(--line);background:var(--surface2);border-radius:10px;padding:9px 11px;color:var(--ink)}.role-badge{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800;color:var(--muted)}.attachment-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}.attachment-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px}.attachment-chip button{border:0;background:transparent;color:var(--red);padding:0 2px}.reference-chip{background:#eee5db}.chat-actions{display:flex;flex-wrap:wrap;gap:8px}.connection-status{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);white-space:nowrap}.status-dot{width:7px;height:7px;border-radius:50%;display:inline-block}.status-dot.online{background:var(--green)}.status-dot.offline{background:var(--amber)}.calendar{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.cal-cell{min-height:48px;border:1px solid transparent;background:var(--surface2);border-radius:9px;padding:7px;text-align:left}.cal-cell:hover{border-color:var(--accent2)}.cal-cell.muted-day{opacity:.4}.cal-cell.today{border-color:var(--accent);font-weight:800}.cal-cell.selected{background:var(--accent);color:#fff}.cal-day{font-size:10px;text-transform:uppercase;color:var(--muted);padding:4px 7px}.cal-cell.selected .cal-day{color:#fff}.auth-page{min-height:100vh;display:grid;place-items:center;padding:28px 16px;background:radial-gradient(circle at top,#fff 0,#f6f2ec 55%)}.auth-brand{position:absolute;top:28px;left:28px}.auth-card{width:min(520px,100%);padding:28px}.auth-switch{text-align:center;margin-top:18px;font-size:13px;color:var(--muted)}.link-btn{border:0;background:none;color:var(--accent);font-weight:800;padding:0;cursor:pointer}.auth-tabs{display:flex;border-bottom:1px solid var(--line);margin:0 0 18px}.auth-tab{flex:1;padding:11px;border:0;background:transparent;color:var(--muted);font-weight:750}.auth-tab.active{color:var(--ink);border-bottom:2px solid var(--accent)}.otp-note{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:10px;font-size:12px;color:var(--muted)}.layout{display:flex;min-height:calc(100vh - 68px)}aside{width:232px;background:#fff;border-right:1px solid var(--line);padding:18px 12px;flex-shrink:0}.nav-label{font-size:11px;color:#968d82;letter-spacing:1.2px;font-weight:800;padding:8px 12px}.navbtn{width:100%;border:0;background:transparent;text-align:left;color:#6c655d;padding:11px 12px;border-radius:10px;margin:2px 0}.navbtn:hover,.navbtn.active{background:#eee5db;color:var(--ink);font-weight:750}.main{width:100%;max-width:1260px;margin:auto;padding:30px}.eyebrow{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:850;color:var(--accent)}h1{font-size:31px;line-height:1.15;letter-spacing:-1px;margin:5px 0 7px}h2{letter-spacing:-.5px}h3{margin:0 0 12px}p{line-height:1.55}.sub{color:var(--muted);margin:0 0 20px}.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}.flat{box-shadow:none;background:var(--surface2)}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.muted{color:var(--muted);font-size:13px}.btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:10px 14px;transition:.15s}.btn:hover{transform:translateY(-1px);border-color:#cbbca9}.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}.btn.accent{background:var(--accent);border-color:var(--accent);color:#fff}.btn.danger{color:var(--red)}.btn.small{padding:7px 10px;font-size:12px}.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}.pill{display:inline-flex;align-items:center;border-radius:999px;padding:5px 9px;background:#f0ece7;color:#655e55;font-size:11px;font-weight:800}.green{background:#e3eee7;color:var(--green)}.amber{background:#f3e9da;color:var(--amber)}.red{background:#f3e2df;color:var(--red)}.hero{background:#2d2822;color:#fff;border-radius:18px;padding:24px}.hero .muted{color:#d8cec2}.bar{height:9px;background:#e9e3dc;border-radius:99px;overflow:hidden}.fill{height:100%;background:var(--accent);border-radius:99px}.hero .bar{background:#65574a}.hero .fill{background:#e2d1bc}.metric{font-size:26px;font-weight:850;margin-top:5px}.cover{height:120px;border-radius:12px;background:linear-gradient(135deg,#c9b39b,#eee5dc 50%,#94785c);display:flex;align-items:flex-end;padding:12px;color:#fff;font-weight:800;margin-bottom:14px}.avatar{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#c5ab8e,#806348);display:grid;place-items:center;color:#fff;font-weight:850;flex-shrink:0}.designer{display:flex;gap:12px}.search{display:flex;gap:10px;margin-bottom:16px}.search input,.field input,.field select,.field textarea,.chat-input{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;background:#fff;color:var(--ink);outline:none}.field{margin:12px 0}.field label{display:block;font-size:12px;font-weight:800;color:#625b53;margin-bottom:6px}.checks{display:flex;flex-wrap:wrap;gap:8px}.check{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 11px;font-size:13px}.check.selected{background:#eee3d6;border-color:#c9b295}.steps{display:flex;gap:6px;margin:16px 0}.step{height:6px;flex:1;border-radius:8px;background:#e8e0d6}.step.on{background:var(--accent)}.tabs{display:flex;gap:2px;overflow:auto;border-bottom:1px solid var(--line);margin:14px 0 18px}.tab{white-space:nowrap;border:0;border-bottom:2px solid transparent;background:transparent;padding:11px 12px;color:var(--muted)}.tab.active{color:var(--ink);border-color:var(--accent);font-weight:800}.activity{padding:12px 0;border-bottom:1px solid var(--line)}.activity:last-child{border-bottom:0}.timeline-item{display:flex;gap:14px;margin:18px 0}.dot{width:12px;height:12px;border-radius:50%;background:#cec6bb;box-shadow:0 0 0 4px #f0ebe4;margin-top:4px;flex-shrink:0}.dot.done{background:var(--green)}.dot.now{background:var(--accent)}.table{width:100%;border-collapse:collapse}.table th,.table td{text-align:left;padding:11px 9px;border-bottom:1px solid var(--line);font-size:13px}.modal-backdrop{position:fixed;inset:0;background:rgba(30,25,20,.48);display:grid;place-items:center;padding:16px;z-index:50}.modal{background:#fff;width:min(680px,100%);max-height:92vh;overflow:auto;border-radius:18px;padding:22px;box-shadow:0 25px 80px rgba(0,0,0,.2)}.toast{position:fixed;right:18px;bottom:18px;z-index:80;background:#29251f;color:#fff;padding:12px 15px;border-radius:12px;box-shadow:var(--shadow)}.mobile-nav{display:none}.kanban{overflow:auto}.kanban-grid{display:grid;grid-template-columns:repeat(5,minmax(210px,1fr));gap:12px;min-width:1080px}.lead{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px;margin-top:9px}.chat{height:300px;overflow:auto;background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:14px}.bubble{max-width:78%;padding:10px 12px;border-radius:13px;background:#ebe6df;margin:8px 0}.bubble.me{margin-left:auto;background:#29251f;color:#fff}.empty{text-align:center;padding:35px;color:var(--muted)}.link-card{cursor:pointer}.link-card:hover{border-color:#cbbca9}.notice{padding:11px 13px;background:#f4ede5;border-radius:11px;border:1px solid #eadfd1}.hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+@media(max-width:850px){.auth-brand{position:static;margin-bottom:18px;text-align:center}.auth-page{display:block;padding-top:30px}.auth-card{padding:20px}aside{display:none}.main{padding:20px 15px 84px}.top{padding:0 15px}.top-right{gap:6px}.top-right .muted{display:none}.role-badge{display:none}.g2,.g3,.g4{grid-template-columns:1fr}.mobile-nav{position:fixed;display:flex;bottom:0;left:0;right:0;height:66px;background:#fff;border-top:1px solid var(--line);z-index:25;justify-content:space-around;padding:7px 4px}.mobile-nav button{border:0;background:transparent;color:var(--muted);font-size:10px;min-width:58px}.mobile-nav button.active{color:var(--ink);font-weight:850}.mobile-nav .mi{font-size:18px;line-height:20px}.search{flex-direction:column}h1{font-size:26px}.card{padding:15px}.table{display:block;overflow:auto;white-space:nowrap}.hero .row{align-items:flex-start;flex-direction:column}.hero .btn{width:100%}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<div id="onboarding" style="display:none"></div>
+<script>
+const KEY="interiorhub_launch_v2_4";
+const base={
+ role:"customer",page:"dashboard",tab:"Overview",toast:"",
+ user:{name:"Aditi"},
+ project:{id:"IH-2026-001",name:"My 2BHK Interior",customer:"Aditi",designer:"Studio Nest",location:"Whitefield, Bangalore",budget:"₹8–10L",value:860000,progress:64,deadline:"30 September"},
+ projects:[],
+ designers:[
+  {id:"d1",name:"Studio Nest",rating:4.9,reviews:84,projects:62,years:7,budget:"₹6–15L",location:"Bangalore",styles:["Modern","Minimal"],verified:true},
+  {id:"d2",name:"Oak & Line Studio",rating:4.8,reviews:61,projects:48,years:6,budget:"₹5–12L",location:"Bangalore",styles:["Contemporary","Luxury"],verified:true},
+  {id:"d3",name:"Mysa Interiors",rating:4.7,reviews:42,projects:35,years:5,budget:"₹4–10L",location:"Bangalore",styles:["Scandinavian","Minimal"],verified:true},
+  {id:"d4",name:"Form & Hearth",rating:4.6,reviews:31,projects:29,years:4,budget:"₹4–9L",location:"Mumbai",styles:["Modern","Contemporary"],verified:true}
+ ],
+ shortlist:[],
+ consultations:[],
+ activities:[
+  {text:"Kitchen design v3 uploaded",time:"Today"},
+  {text:"Material approval requested",time:"Yesterday"},
+  {text:"Site update uploaded",time:"2 days ago"},
+  {text:"Payment milestone completed",time:"3 days ago"}
+ ],
+ designs:[
+  {id:"des1",name:"Living Room",type:"3D Render",version:"v3",status:"Approved"},
+  {id:"des2",name:"Kitchen",type:"3D Render",version:"v2",status:"Changes Requested"},
+  {id:"des3",name:"Master Bedroom",type:"Furniture Layout",version:"v1",status:"Pending Review"}
+ ],
+ materials:[
+  {id:"m1",name:"Matte Beige Laminate",brand:"Greenlam",code:"GL-482",finish:"Matte",price:145,qty:38,status:"Pending"},
+  {id:"m2",name:"Soft-close Hinge",brand:"Hettich",code:"HT-09",finish:"Nickel",price:680,qty:12,status:"Approved"},
+  {id:"m3",name:"Warm White Downlight",brand:"Philips",code:"PH-11",finish:"3000K",price:540,qty:14,status:"Pending"}
+ ],
+ quotation:{id:"IH-Q-003",version:3,status:"Pending",items:[
+  ["Modular Kitchen",180000],["Wardrobes",150000],["TV Unit",45000],["False Ceiling",55000],["Electrical",35000],["Painting",40000]
+ ]},
+ tasks:[
+  {id:"t1",title:"Finalize kitchen laminate",assigned:"Studio Nest",due:"12 Sep",priority:"High",status:"In Progress"},
+  {id:"t2",title:"Confirm wardrobe handles",assigned:"Aditi",due:"10 Sep",priority:"Medium",status:"Todo"},
+  {id:"t3",title:"Manufacturing QA",assigned:"Studio Nest",due:"15 Sep",priority:"High",status:"Todo"}
+ ],
+ messages:[
+  {from:"designer",text:"Can we change the wardrobe handles?"},
+  {from:"customer",text:"Yes. I've uploaded two alternatives.",attachments:[{name:"wardrobe-handle-options.pdf",type:"application/pdf",size:248000,dataUrl:""}]},
+  {from:"designer",text:"I prefer option 2. I'll update the material list."}
+ ],
+ chatDraft:{attachments:[],references:[]},
+ notifications:[
+  {id:"n1",text:"Studio Nest uploaded Living Room v3.",read:false},
+  {id:"n2",text:"Material approval requested.",read:false},
+  {id:"n3",text:"Site update uploaded.",read:true},
+  {id:"n4",text:"Payment milestone due.",read:false}
+ ],
+ leads:[
+  {id:"l1",name:"Rahul Mehta",project:"2BHK Interior",place:"Whitefield, Bangalore",budget:"₹8–10L",style:"Modern",stage:"NEW"},
+  {id:"l2",name:"Sneha Rao",project:"3BHK Interior",place:"Indiranagar, Bangalore",budget:"₹12–15L",style:"Minimal",stage:"CONSULTATION"},
+  {id:"l3",name:"Arjun Shah",project:"Villa Interior",place:"Sarjapur, Bangalore",budget:"₹20L+",style:"Luxury",stage:"PROPOSAL"}
+ ],
+ portfolio:[
+  {name:"Warm Modern Home",place:"Whitefield, Bangalore",type:"2BHK",budget:"₹8–10L",style:"Modern"},
+  {name:"Earth & Stone Villa",place:"Sarjapur, Bangalore",type:"Villa",budget:"₹20–25L",style:"Luxury"},
+  {name:"Quiet Minimal",place:"Indiranagar, Bangalore",type:"3BHK",budget:"₹12–15L",style:"Minimal"}
+ ],
+ siteUpdates:[{title:"Kitchen installation",desc:"Base cabinets installed. Countertop measurement completed.",progress:64,date:"06 Sep"}],
+ payments:[{name:"Booking",amount:50000,status:"Paid"},{name:"Design",amount:100000,status:"Paid"},{name:"Production",amount:250000,status:"Due"},{name:"Installation",amount:300000,status:"Pending"},{name:"Final",amount:160000,status:"Pending"}],
+ verification:[{name:"Urban Form Studio",type:"Business verification",status:"Pending"},{name:"Line & Light",type:"Portfolio review",status:"Pending"}]
+};
+base.auth={loggedIn:false,user:null,token:null};
+base.consultations=[];
+base.users=[
+ {id:"demo-customer",name:"Aditi",email:"aditi@example.com",role:"customer",status:"Active"},
+ {id:"demo-designer",name:"Rhea Kapoor",email:"studio@studionest.in",role:"designer",status:"Active"},
+ {id:"demo-admin",name:"InteriorHub Admin",email:"admin@interiorhub.in",role:"admin",status:"Active"}
+];
+base.designerProfile={businessName:"Studio Nest",phone:"+91 98765 43210",services:["Full home interiors","Kitchen","Wardrobes","Lighting"],verified:{identity:true,business:true,portfolio:true,history:true}};
+base.activityLog=[];
+base.onboardingDone=false;
+base.authView="signup";
+base.realtime={connected:false};
+const API_BASE=(new URLSearchParams(location.search).get("api")||window.INTERIORHUB_API||((location.protocol!=="file:")?location.origin:"http://localhost:8787")).replace(/\/$/,"");
+let apiOnline=false;
+let apiUser=null;
+let syncTimer=null;
+
+async function apiFetch(path,options={}){
+ const controller=new AbortController();
+ const timer=setTimeout(()=>controller.abort(),5000);
+ try{
+  const res=await fetch(API_BASE+path,{...options,headers:{"Content-Type":"application/json",...(options.headers||{})},credentials:"include",signal:controller.signal});
+  clearTimeout(timer);
+  const data=await res.json().catch(()=>({}));
+  if(!res.ok) throw new Error(data.error||"Request failed");
+  return data;
+ }catch(e){clearTimeout(timer);throw e}
+}
+async function checkBackend(){
+ try{const r=await apiFetch("/api/health");apiOnline=!!r.ok;renderConnectionBadge()}
+ catch(e){apiOnline=false;renderConnectionBadge()}
+}
+function renderConnectionBadge(){
+ const label=apiOnline?((state.realtime?.connected)?"Backend connected · live messaging":"Backend connected"):"Backend unavailable";
+ const el=document.getElementById("connectionStatus");
+ if(el) el.innerHTML=apiOnline?'<span class="status-dot online"></span>'+label:'<span class="status-dot offline"></span>'+label;
+ const authEl=document.getElementById("authBackendStatus");
+ if(authEl) authEl.innerHTML=apiOnline?'<span class="status-dot online"></span> Secure backend connected':'<span class="status-dot offline"></span> Backend unavailable — start the InteriorHub server or open the deployed site';
+}
+function queueBackendSync(){
+ if(!API_BASE || !state.auth?.loggedIn)return;
+ clearTimeout(syncTimer);
+ syncTimer=setTimeout(async()=>{
+  try{
+   await apiFetch("/api/state",{method:"PUT",headers:state.auth.token?{"Authorization":"Bearer "+state.auth.token}:{} ,body:JSON.stringify({state})});
+   apiOnline=true;renderConnectionBadge();
+  }catch(e){apiOnline=false;renderConnectionBadge()}
+ },500);
+}
+
+let state=load();
+syncRoleFromAccount();
+checkBackend();
+if(state.auth?.loggedIn) hydrateBackend();
+function authHeaders(){return state.auth?.token?{"Authorization":"Bearer "+state.auth.token}:{} }
+async function hydrateBackend(){
+ try{
+  const me=await apiFetch("/api/me",{headers:authHeaders()});
+  state.auth={loggedIn:true,token:state.auth.token||null,user:me.user};
+  syncRoleFromAccount();
+  const r=await apiFetch("/api/state",{headers:authHeaders()});
+  if(r.state){const keep={auth:state.auth,toast:state.toast,authView:state.authView,realtime:state.realtime};Object.assign(state,r.state);Object.assign(state,keep);syncRoleFromAccount();localStorage.setItem(KEY,JSON.stringify(state));}
+  else {await apiFetch("/api/state",{method:"PUT",headers:authHeaders(),body:JSON.stringify({state})});}
+  try{const mr=await apiFetch("/api/messages?projectId="+encodeURIComponent(state.project.id),{headers:authHeaders()});if(Array.isArray(mr.messages))state.messages=mr.messages;}catch{}
+  startRealtime(); render();
+ }catch(e){
+  state.auth={loggedIn:false,user:null,token:null}; state.authView="signup"; localStorage.setItem(KEY,JSON.stringify(state)); render();
+ }
+}
+let eventSource=null;
+function startRealtime(){
+ if(eventSource) eventSource.close();
+ if(!state.auth?.loggedIn)return;
+ const token=state.auth.token?encodeURIComponent(state.auth.token):"";
+ eventSource=new EventSource(API_BASE+"/api/events?token="+token);
+ eventSource.onopen=()=>{state.realtime.connected=true;renderConnectionBadge()};
+ eventSource.onmessage=async ev=>{try{const msg=JSON.parse(ev.data);if(msg.type==="message"&&msg.message){if(!state.messages.some(x=>x.id===msg.message.id)){state.messages.push(msg.message);state.activities.unshift({text:"New project message received",time:"Just now"});save(false);render();}}}catch{}};
+ eventSource.onerror=()=>{state.realtime.connected=false;renderConnectionBadge()};
+}
+function stopRealtime(){if(eventSource){eventSource.close();eventSource=null}state.realtime.connected=false}
+
+function load(){
+ try{
+  const x=JSON.parse(localStorage.getItem(KEY));
+  const merged=structuredClone(base);
+  if(x) Object.keys(x).forEach(k=>merged[k]=x[k]);
+  // Never trust a cached logged-in flag by itself. A session token must exist;
+  // the backend will validate that token during hydrateBackend().
+  if(!x?.auth?.token){ merged.auth={loggedIn:false,user:null,token:null}; merged.authView="signup"; merged.authMethod="email"; }
+  merged.auth=merged.auth||structuredClone(base.auth);
+  merged.users=merged.users||structuredClone(base.users);
+  merged.consultations=merged.consultations||[];
+  merged.designerProfile=merged.designerProfile||structuredClone(base.designerProfile);
+  merged.activityLog=merged.activityLog||[];
+  merged.chatDraft=merged.chatDraft||{attachments:[],references:[]};
+  merged.selectedProjectId=merged.selectedProjectId||merged.project?.id; merged.reminders=merged.reminders||[];
+  return merged;
+ }catch(e){return structuredClone(base)}
+}
+function save(sync=true){localStorage.setItem(KEY,JSON.stringify(state));if(sync)queueBackendSync()}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function toast(msg){state.toast=msg;save();render();setTimeout(()=>{if(state.toast===msg){state.toast="";render()}},2200)}
+function nav(p){state.page=p;state.tab="Overview";save();render()}
+function openModal(content){const b=document.createElement("div");b.className="modal-backdrop";b.innerHTML=`<div class="modal">${content}</div>`;b.addEventListener("click",e=>{if(e.target===b)b.remove()});document.body.appendChild(b);return b}
+function closeModal(){document.querySelector(".modal-backdrop")?.remove()}
+function money(n){return "₹"+Number(n).toLocaleString("en-IN")}
+function initials(n){return n.split(/\s+/).map(x=>x[0]).slice(0,2).join("").toUpperCase()}
+function roleLabel(){return state.role==="customer"?"Customer":state.role==="designer"?"Designer":"Admin"}
+function syncRoleFromAccount(){
+ const account=state.auth?.user;
+ state.role=account?.role||"customer";
+}
+function setRole(v){
+ // Roles are controlled by the signed-in account. There is intentionally no
+ // customer/designer/admin switch inside the workspace.
+ toast("Your workspace is controlled by your signed-in account.");
+}
+function navItems(){if(state.role==="customer")return [["dashboard","⌂","Dashboard"],["discover","⌕","Discover"],["projects","▣","Projects"],["messages","◌","Messages"],["notifications","●","Notifications"],["profile","○","Profile"]];if(state.role==="designer")return [["dashboard","⌂","Dashboard"],["consultations","◌","Consultations"],["leads","◇","Leads"],["projects","▣","Projects"],["clients","♙","Clients"],["portfolio","▧","Portfolio"],["quotations","₹","Quotations"],["materials","◆","Materials"],["messages","◌","Messages"],["payments","◈","Payments"],["profile","○","Profile"]];return [["dashboard","⌂","Dashboard"],["users","♙","Users"],["designers","◇","Designers"],["projects","▣","Projects"],["verification","✓","Verification"],["payments","◈","Payments"],["reports","▤","Reports"],["settings","⚙","Settings"]]}
+function shell(content){
+ const items=navItems();
+ return `<div class="app"><header class="top"><div class="brand">Interior<span>Hub</span></div><div class="top-right"><span class="muted">${state.auth?.user?.name||"Demo user"}</span><button id="connectionStatus" class="connection-status" onclick="checkBackend()" title="Check backend connection">${apiOnline?'<span class="status-dot online"></span>Backend connected':'<span class="status-dot offline"></span>Offline mode'}</button><button class="btn small" onclick="openProfile()">Profile</button><span class="role-badge">${roleLabel()} account</span><button class="btn small" onclick="logout()">Log out</button></div></header><div class="layout"><aside><div class="nav-label">WORKSPACE</div>${items.map(i=>`<button class="navbtn ${state.page===i[0]?"active":""}" onclick="nav('${i[0]}')">${i[1]} &nbsp; ${i[2]} ${i[0]==="notifications"&&unread()?`<span class="pill red" style="float:right">${unread()}</span>`:""}</button>`).join("")}<div style="height:20px"></div><div class="card flat"><b>InteriorHub</b><div class="muted">Find. Collaborate. Build.</div></div></aside><main class="main">${content}</main></div><div class="mobile-nav">${items.slice(0,5).map(i=>`<button class="${state.page===i[0]?"active":""}" onclick="nav('${i[0]}')"><div class="mi">${i[1]}</div>${i[2]}</button>`).join("")}</div>${state.toast?`<div class="toast">${esc(state.toast)}</div>`:""}</div>`
+}
+function unread(){return state.notifications.filter(n=>!n.read).length}
+function customerDash(){
+ return `<div class="eyebrow">CUSTOMER DASHBOARD</div><h1>Good morning 👋</h1><p class="sub">Everything for your interior project, in one place.</p>
+ <div class="hero"><div class="row"><div><div class="eyebrow" style="color:#cdb79f">ACTIVE PROJECT</div><h2 style="margin:6px 0">${state.project.name}</h2><div class="muted">${state.project.designer} · ${state.project.location} · ${state.project.budget}</div></div><button class="btn" onclick="openWorkspace()">Open project →</button></div><div style="margin-top:20px"><div class="row"><span>Project progress</span><b>${state.project.progress}%</b></div><div class="bar" style="margin-top:8px"><div class="fill" style="width:${state.project.progress}%"></div></div><div class="muted" style="margin-top:8px">Expected handover: ${state.project.deadline}</div></div></div>
+ <div style="height:16px"></div><div class="grid g4">${[
+  ["Find Designer","nav('discover')"],["Create Project","createProject()"],["Messages","nav('messages')"],["View Quotation","openWorkspace('Quotation')"]
+ ].map(x=>`<button class="card" style="text-align:left;border:1px solid var(--line)" onclick="${x[1]}"><div style="font-size:20px">${x[0][0]}</div><b>${x[0]}</b><div class="muted">Quick action</div></button>`).join("")}</div>
+ <div style="height:18px"></div><div class="grid g2"><div class="card"><div class="row"><h3>Recent activity</h3><span class="pill green">Live</span></div>${state.activities.slice(0,5).map(a=>`<div class="activity"><b>${esc(a.text)}</b><div class="muted">${a.time}</div></div>`).join("")}</div><div><h3>Recommended designers</h3><div class="grid">${state.designers.slice(0,2).map(designerCard).join("")}</div></div></div>`
+}
+function designerCard(d){
+ const shortlisted=state.shortlist.includes(d.id);
+ return `<div class="card"><div class="cover">${d.styles[0]} residential portfolio</div><div class="designer"><div class="avatar">${initials(d.name)}</div><div style="flex:1"><div class="row"><b>${d.name}</b>${d.verified?'<span class="pill green">✓ Verified</span>':""}</div><div class="muted">★ ${d.rating} · ${d.reviews} reviews · ${d.projects} projects</div><div class="muted">${d.years} years · ${d.budget} · ${d.location}</div><div style="margin-top:7px">${d.styles.join(" · ")}</div></div></div><div class="row" style="margin-top:14px"><button class="btn small" onclick="viewDesigner('${d.id}')">View Profile</button><button class="btn small" onclick="toggleShortlist('${d.id}')">${shortlisted?"♥ Shortlisted":"♡ Shortlist"}</button><button class="btn small accent" onclick="consult('${d.id}')">Consult</button></div></div>`
+}
+function discover(){
+ return `<div class="eyebrow">DESIGNER MARKETPLACE</div><h1>Find the right designer for your project</h1><p class="sub">Compare real studios by style, experience, location and budget.</p>
+ <div class="search"><input id="designerSearch" placeholder="Search designers, studios or styles" oninput="renderDesignerSearch()"><select id="locFilter" onchange="renderDesignerSearch()"><option value="">All locations</option><option>Bangalore</option><option>Mumbai</option></select><select id="styleFilter" onchange="renderDesignerSearch()"><option value="">All styles</option><option>Modern</option><option>Minimal</option><option>Luxury</option><option>Contemporary</option><option>Scandinavian</option></select></div>
+ <div id="designerResults" class="grid g2">${state.designers.map(designerCard).join("")}</div>`
+}
+function renderDesignerSearch(){
+ const q=(document.getElementById("designerSearch")?.value||"").toLowerCase(), loc=document.getElementById("locFilter")?.value||"", style=document.getElementById("styleFilter")?.value||"";
+ const ds=state.designers.filter(d=>(d.name+" "+d.location+" "+d.styles.join(" ")).toLowerCase().includes(q)&&(!loc||d.location===loc)&&(!style||d.styles.includes(style)));
+ const el=document.getElementById("designerResults");if(el)el.innerHTML=ds.length?ds.map(designerCard).join(""):`<div class="card empty">No designers match those filters.</div>`;
+}
+function viewDesigner(id){
+ const d=state.designers.find(x=>x.id===id);if(!d)return;
+ openModal(`<div class="row"><div><div class="eyebrow">DESIGNER PROFILE</div><h2 style="margin:5px 0">${d.name}</h2><div class="muted">✓ Verified Designer · ★ ${d.rating} · ${d.projects} projects · ${d.years} years</div></div><button class="btn" onclick="closeModal()">×</button></div><div class="cover" style="height:175px;margin-top:16px">Signature residential portfolio</div><div class="grid g2"><div><h3>About</h3><p class="sub">A residential interior studio focused on thoughtful planning, transparent execution and practical material choices.</p><h3>Services</h3><div class="checks"><span class="pill">Full home interiors</span><span class="pill">Kitchen</span><span class="pill">Wardrobes</span><span class="pill">Lighting</span></div></div><div><h3>Price range</h3><p>${d.budget}</p><h3>Locations</h3><p>Bangalore · Whitefield · Indiranagar · Sarjapur</p><h3>Reviews</h3><p>“Clear communication and very organised execution.”</p></div></div><h3>Portfolio</h3><div class="grid g3"><div class="cover">2BHK · Modern</div><div class="cover">Villa · Luxury</div><div class="cover">3BHK · Minimal</div></div><button class="btn accent" onclick="closeModal();consult('${d.id}')">Request Consultation</button>`)
+}
+function toggleShortlist(id){const i=state.shortlist.indexOf(id);if(i>=0){state.shortlist.splice(i,1);toast("Removed from shortlist")}else{state.shortlist.push(id);toast("Designer added to shortlist")}save();render()}
+function consult(id){
+ const d=state.designers.find(x=>x.id===id);if(!d)return;
+ openModal(`<div class="row"><div><div class="eyebrow">CONSULTATION</div><h2>Request consultation</h2><p class="sub">Start a conversation with ${esc(d.name)}.</p></div><button class="btn" onclick="closeModal()">×</button></div>
+ <div class="field"><label>Project *</label><select id="consultProject"><option value="${esc(state.project.name)}">${esc(state.project.name)}</option>${state.projects.map(p=>`<option value="${esc(p.name)}">${esc(p.name)}</option>`).join("")}</select></div>
+ <div class="grid g2"><div class="field"><label>Preferred date *</label><input id="cdate" type="date"></div><div class="field"><label>Preferred time *</label><select id="ctime"><option>10:00 AM</option><option>2:00 PM</option><option>5:00 PM</option></select></div></div>
+ <div class="field"><label>Meeting type</label><div class="checks"><button class="check selected" type="button">Video call</button><button class="check" type="button">Phone</button><button class="check" type="button">Site visit</button></div></div>
+ <div class="field"><label>Message</label><textarea id="cmsg" rows="4" placeholder="Tell the designer what you need..."></textarea></div>
+ <div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="sendConsult('${id}')">Send Request</button></div>`);
+}
+function sendConsult(id){
+ const d=state.designers.find(x=>x.id===id),date=document.getElementById("cdate")?.value;
+ if(!date){toast("Please choose a preferred date.");return}
+ const item={id:"c"+Date.now(),designerId:id,designer:d.name,project:document.getElementById("consultProject")?.value||state.project.name,date,time:document.getElementById("ctime")?.value||"10:00 AM",message:document.getElementById("cmsg")?.value.trim()||"",status:"New"};
+ state.consultations.unshift(item);
+ state.activities.unshift({text:"Consultation request sent to "+d.name,time:"Just now"});
+ state.notifications.unshift({id:"n"+Date.now(),text:"Consultation request sent to "+d.name+".",read:false});
+ state.activityLog.unshift({text:"Consultation requested from "+d.name,time:"Just now"});
+ save();closeModal();toast("Consultation request sent.");render()
+}
+function createProject(){
+ const data={property:"Apartment",config:"2 BHK",area:"",city:"Bangalore",locality:"",requirements:[],budget:"₹8–12L",style:"Modern",notes:"",files:[]};
+ let step=1;
+ const requirements=["Living room","Kitchen","Master bedroom","Bedroom","Wardrobes","Pooja room","False ceiling","Lighting","Electrical","Civil work","Furniture"];
+ const styles=["Modern","Minimal","Contemporary","Traditional","Luxury","Scandinavian","Industrial"];
+ function body(){
+  let inner="";
+  if(step===1)inner=`<h2>Create project</h2><p class="sub">Property basics</p><div class="steps">${[1,2,3,4,5].map(i=>`<span class="step ${i<=step?"on":""}"></span>`).join("")}</div><div class="field"><label>Property type *</label><select id="ptype">${["Apartment","Villa","Independent House","Office"].map(x=>`<option ${x===data.property?"selected":""}>${x}</option>`).join("")}</select></div><div class="field"><label>Configuration *</label><select id="pconfig">${["1 BHK","2 BHK","3 BHK","4 BHK","Other"].map(x=>`<option ${x===data.config?"selected":""}>${x}</option>`).join("")}</select></div><div class="grid g2"><div class="field"><label>Area (sq ft) *</label><input id="parea" value="${esc(data.area)}" type="number" placeholder="e.g. 1250"></div><div class="field"><label>City *</label><input id="pcity" value="${esc(data.city)}"></div></div><div class="field"><label>Area / locality</label><input id="plocality" value="${esc(data.locality)}" placeholder="e.g. Whitefield"></div>`;
+  if(step===2)inner=`<h2>Requirements</h2><p class="sub">Choose everything you want included.</p><div class="steps">${[1,2,3,4,5].map(i=>`<span class="step ${i<=step?"on":""}"></span>`).join("")}</div><div class="checks">${requirements.map(r=>`<button class="check ${data.requirements.includes(r)?"selected":""}" onclick="this.classList.toggle('selected');projectWizardToggle('${r}')">${r}</button>`).join("")}</div>`;
+  if(step===3)inner=`<h2>Budget</h2><p class="sub">Choose an approximate range.</p><div class="steps">${[1,2,3,4,5].map(i=>`<span class="step ${i<=step?"on":""}"></span>`).join("")}</div><div class="checks">${["₹3–5L","₹5–8L","₹8–12L","₹12–20L","₹20L+"].map(x=>`<button class="check ${data.budget===x?"selected":""}" onclick="projectWizardSet('budget','${x}')">${x}</button>`).join("")}</div>`;
+  if(step===4)inner=`<h2>Preferred style</h2><p class="sub">Pick the visual direction.</p><div class="steps">${[1,2,3,4,5].map(i=>`<span class="step ${i<=step?"on":""}"></span>`).join("")}</div><div class="checks">${styles.map(x=>`<button class="check ${data.style===x?"selected":""}" onclick="projectWizardSet('style','${x}')">${x}</button>`).join("")}</div>`;
+  if(step===5)inner=`<h2>Final details</h2><p class="sub">Anything the designer should know?</p><div class="steps">${[1,2,3,4,5].map(i=>`<span class="step ${i<=step?"on":""}"></span>`).join("")}</div><div class="field"><label>Additional requirements</label><textarea id="pnotes" rows="5" placeholder="Move-in date, priorities, reference ideas...">${esc(data.notes)}</textarea></div><div class="card flat"><b>Reference files</b><div class="muted">Floor plan / reference images (demo upload).</div><input id="pfiles" type="file" multiple style="margin-top:10px"></div>`;
+  return inner+`<div class="row" style="margin-top:20px"><button class="btn" onclick="${step===1?"closeModal()":"projectWizardBack()"}">${step===1?"Cancel":"Back"}</button><button class="btn primary" onclick="projectWizardNext()">${step<5?"Continue":"Publish Project Brief"}</button></div>`
+ }
+ let m=openModal(body());
+ window.projectWizardToggle=r=>{const i=data.requirements.indexOf(r);i>=0?data.requirements.splice(i,1):data.requirements.push(r);m.querySelector(".modal").innerHTML=body()};
+ window.projectWizardSet=(k,v)=>{data[k]=v;m.querySelector(".modal").innerHTML=body()};
+ window.projectWizardBack=()=>{capture();step--;m.querySelector(".modal").innerHTML=body()};
+ window.projectWizardNext=()=>{if(!capture())return;if(step<5){step++;m.querySelector(".modal").innerHTML=body()}else{publishProject(data);m.remove()}};
+ function capture(){
+  if(step===1){data.property=m.querySelector("#ptype")?.value;data.config=m.querySelector("#pconfig")?.value;data.area=m.querySelector("#parea")?.value;data.city=m.querySelector("#pcity")?.value;data.locality=m.querySelector("#plocality")?.value;if(!data.area||!data.city){toast("Please complete the required property fields.");return false}}
+  if(step===5){data.notes=m.querySelector("#pnotes")?.value||"";data.files=[...(m.querySelector("#pfiles")?.files||[])].map(f=>f.name)}
+  return true
+ }
+}
+function publishProject(data){
+ const p={id:"IH-2026-"+String(Date.now()).slice(-5),name:`${data.config} Interior`,customer:"Aditi",designer:"Matching designers",location:`${data.locality?data.locality+", ":""}${data.city}`,budget:data.budget,progress:0,deadline:"To be confirmed",requirements:data.requirements,style:data.style};
+ state.projects.unshift(p);state.activities.unshift({text:"New project brief published",time:"Just now"});state.notifications.unshift({id:"n"+Date.now(),text:"Your project brief is live. Matching designers can now respond.",read:false});save();state.page="projects";toast("Your project brief is live.");render()
+}
+function projectsPage(){
+ if(state.role==="designer")return designerProjects();
+ const list=[state.project,...state.projects];
+ return `<div class="row"><div><div class="eyebrow">MY PROJECTS</div><h1>Your interior projects</h1><p class="sub">Track design, approvals, materials and execution.</p></div><button class="btn primary" onclick="createProject()">+ Create Project</button></div><div class="grid g2">${list.map((p,i)=>`<div class="card"><div class="row"><div><h3>${esc(p.name)}</h3><div class="muted">${esc(p.location)} · ${esc(p.budget)}</div></div><span class="pill ${i===0?"green":""}">${i===0?"ACTIVE":"BRIEF LIVE"}</span></div><div class="row" style="margin:17px 0 7px"><span class="muted">Progress</span><b>${p.progress||0}%</b></div><div class="bar"><div class="fill" style="width:${p.progress||0}%"></div></div><button class="btn primary" style="margin-top:15px" onclick="openWorkspace('Overview','${esc(p.id)}')">Open workspace →</button></div>`).join("")}</div>`
+}
+function findProject(id){return [state.project,...state.projects].find(p=>p.id===id)||state.project}
+function openWorkspace(tab,id){
+ state.selectedProjectId=id||state.project.id;
+ state.project=findProject(state.selectedProjectId);
+ state.page="workspace";state.tab=tab||"Overview";save();render()
+}
+function workspace(){
+ const tabs=["Overview","Designs","Quotation","Materials","Tasks","Timeline","Site Updates","Files","Messages","Payments"];
+ return `<div class="row"><div><div class="eyebrow">PROJECT WORKSPACE</div><h1>${state.project.name}</h1><p class="sub">${state.project.customer} · ${state.project.designer} · ${state.project.location} · ${money(state.project.value)}</p></div><span class="pill green">${state.project.progress}% complete</span></div><div class="tabs">${tabs.map(t=>`<button class="tab ${state.tab===t?"active":""}" onclick="state.tab='${t}';save();render()">${t}</button>`).join("")}</div>${workspaceTab()}`
+}
+function workspaceTab(){switch(state.tab){case"Overview":return overview();case"Designs":return designs();case"Quotation":return quotation();case"Materials":return materials();case"Tasks":return tasks();case"Timeline":return timeline();case"Site Updates":return siteUpdates();case"Messages":return projectMessages();case"Payments":return payments();default:return genericTab(state.tab)}}
+function overview(){
+ const ms=[["Site Measurement","done"],["Concept Design","done"],["Design Approval","done"],["Material Selection","now"],["Manufacturing",""],["Installation",""],["Handover",""]];
+ return `<div class="grid g2"><div class="card"><div class="row"><h3>Overall progress</h3><b>${state.project.progress}%</b></div><div class="bar" style="margin:14px 0"><div class="fill" style="width:${state.project.progress}%"></div></div>${ms.map(x=>`<div class="timeline-item"><span class="dot ${x[1]}"></span><div><b>${x[0]}</b><div class="muted">${x[1]==="done"?"Completed":x[1]==="now"?"In progress":"Upcoming"}</div></div></div>`).join("")}</div><div class="card"><h3>Upcoming</h3><div class="eyebrow">18 SEPTEMBER</div><h2>Kitchen installation</h2><p class="sub">Base cabinets are ready for installation after the final site check.</p><button class="btn" onclick="openCalendar('2026-09-18')">Add reminder</button><button class="btn" onclick="openCalendar()">Open calendar</button><hr class="hr"><h3>Pending actions</h3><div class="notice">${state.designs.filter(d=>d.status!=="Approved").length} design reviews · ${state.materials.filter(m=>m.status==="Pending").length} material approvals</div></div></div>`
+}
+function addReminder(){openCalendar("2026-09-18")}
+function openCalendar(preselect){
+ const baseDate=preselect?new Date(preselect+"T12:00:00"):new Date();
+ let cursor=new Date(baseDate.getFullYear(),baseDate.getMonth(),1);
+ let selected=preselect||baseDate.toISOString().slice(0,10);
+ function draw(){
+  const y=cursor.getFullYear(),m=cursor.getMonth(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();
+  let cells="";
+  ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].forEach(d=>cells+=`<div class="cal-day">${d}</div>`);
+  for(let i=0;i<first;i++)cells+=`<div></div>`;
+  for(let d=1;d<=days;d++){
+   const ds=`${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+   const today=new Date(); const isToday=ds===today.toISOString().slice(0,10);
+   cells+=`<button class="cal-cell ${ds===selected?"selected ":""}${isToday?"today":""}" onclick="window.__calendarPick('${ds}')">${d}</button>`;
+  }
+  const modal=document.querySelector(".modal");
+  if(!modal)return;
+  modal.innerHTML=`<div class="row"><div><div class="eyebrow">PROJECT CALENDAR</div><h2>Schedule a project reminder</h2><p class="sub">${esc(state.project.name)}</p></div><button class="btn" onclick="closeModal()">×</button></div>
+   <div class="calendar"><div class="cal-head"><button class="btn small" onclick="window.__calendarPrev()">←</button><b>${new Intl.DateTimeFormat("en-IN",{month:"long",year:"numeric"}).format(cursor)}</b><button class="btn small" onclick="window.__calendarNext()">→</button></div><div class="cal-grid">${cells}</div></div>
+   <div class="grid g2" style="margin-top:14px"><div class="field"><label>Date</label><input id="remDate" type="date" value="${selected}"></div><div class="field"><label>Time</label><input id="remTime" type="time" value="10:00"></div></div>
+   <div class="field"><label>Reminder</label><input id="remText" value="${selected==="2026-09-18"?"Kitchen installation":"Project milestone"}"></div>
+   <div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="saveReminder()">Save reminder</button></div>`;
+ }
+ window.__calendarPick=(ds)=>{selected=ds;const d=new Date(ds+"T12:00:00");cursor=new Date(d.getFullYear(),d.getMonth(),1);draw()};
+ window.__calendarPrev=()=>{cursor.setMonth(cursor.getMonth()-1);draw()};
+ window.__calendarNext=()=>{cursor.setMonth(cursor.getMonth()+1);draw()};
+ window.__calendarDraw=draw;
+ openModal("<div></div>");draw();
+}
+function saveReminder(){
+ const date=document.getElementById("remDate")?.value,time=document.getElementById("remTime")?.value,text=document.getElementById("remText")?.value.trim();
+ if(!date||!time||!text){toast("Date, time and reminder are required.");return}
+ const id="rem"+Date.now();
+ state.reminders=state.reminders||[];
+ state.reminders.push({id,date,time,text,projectId:state.project.id});
+ state.notifications.unshift({id:"n"+Date.now(),text:`Reminder set: ${text} · ${date} at ${time}`,read:false});
+ state.activities.unshift({text:`Reminder scheduled: ${text}`,time:"Just now"});
+ save();closeModal();toast("Reminder scheduled.");
+}
+function designs(){
+ return `<div class="row"><div><h3>Design review</h3><p class="sub">Keep every revision and approval traceable.</p></div>${state.role==="designer"?`<button class="btn primary" onclick="designerUploadDesign()">+ Upload design</button>`:""}</div><div class="grid g3">${state.designs.map((d,i)=>`<div class="card"><div class="cover">${d.type} · ${d.version}</div><div class="row"><b>${esc(d.name)}</b><span class="pill ${d.status==="Approved"?"green":d.status==="Changes Requested"?"amber":""}">${d.status}</span></div><div class="muted" style="margin:8px 0">Version history · v1 → v2 → ${d.version}</div><div class="row">${d.status!=="Approved"?`<button class="btn small accent" onclick="approveDesign('${d.id}')">Approve</button><button class="btn small" onclick="requestChanges('${d.id}')">Request Changes</button>`:`<button class="btn small" disabled>Approved ✓</button>`}<button class="btn small" onclick="addDesignComment('${d.id}')">Comment</button></div></div>`).join("")}</div>`
+}
+function approveDesign(id){const d=state.designs.find(x=>x.id===id);if(!d)return;d.status="Approved";state.activities.unshift({text:`Aditi approved ${d.name} ${d.version}.`,time:"Just now"});state.notifications.unshift({id:"n"+Date.now(),text:`${d.name} ${d.version} was approved.`,read:false});save();toast("Design approved successfully.")}
+function requestChanges(id){const d=state.designs.find(x=>x.id===id);openModal(`<h2>Request changes</h2><p class="sub">${esc(d.name)} · ${d.version}</p><div class="field"><label>Comment *</label><textarea id="changeText" rows="5" placeholder="Example: Please make the wardrobe handles black."></textarea></div><div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="submitChange('${id}')">Send request</button></div>`)}
+function submitChange(id){const text=document.getElementById("changeText")?.value.trim();if(!text){toast("Please add a change request.");return}const d=state.designs.find(x=>x.id===id);d.status="Changes Requested";state.activities.unshift({text:`Changes requested on ${d.name}: ${text}`,time:"Just now"});state.notifications.unshift({id:"n"+Date.now(),text:`Customer requested changes on ${d.name}.`,read:false});save();closeModal();toast("Change request sent.")}
+function designerUploadDesign(){openModal(`<h2>Upload design</h2><div class="field"><label>Design title *</label><input id="duTitle" placeholder="e.g. Dining area elevation"></div><div class="field"><label>Type</label><select id="duType"><option>2D Plan</option><option>3D Render</option><option>Elevation</option><option>Electrical Drawing</option><option>Furniture Layout</option></select></div><div class="field"><label>File *</label><input id="duFile" type="file"></div><div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="submitDesign()">Upload</button></div>`)}
+function submitDesign(){
+ const title=document.getElementById("duTitle")?.value.trim();
+ const file=document.getElementById("duFile")?.files?.[0];
+ if(!title){toast("Design title is required.");return}
+ if(!file){toast("Please choose a design file.");return}
+ if(file.size>10*1024*1024){toast("Design files must be 10 MB or smaller.");return}
+ state.designs.push({id:"des"+Date.now(),name:title,type:document.getElementById("duType").value,version:"v1",status:"Pending Review",file:{name:file.name,type:file.type,size:file.size}});
+ state.activities.unshift({text:`${title} v1 uploaded`,time:"Just now"});
+ state.notifications.unshift({id:"n"+Date.now(),text:`New design uploaded: ${title} v1.`,read:false});
+ save();closeModal();toast("Design uploaded.");
+}
+function addDesignComment(id){
+ const d=state.designs.find(x=>x.id===id); if(!d)return;
+ openModal(`<h2>Comment on ${esc(d.name)}</h2><p class="sub">${esc(d.version)} · ${esc(d.status)}</p><div class="field"><label>Comment *</label><textarea id="designComment" rows="5" placeholder="Add feedback for this design..."></textarea></div><div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="submitDesignComment('${d.id}')">Add comment</button></div>`);
+}
+function submitDesignComment(id){
+ const text=document.getElementById("designComment")?.value.trim(); if(!text){toast("Please add a comment.");return}
+ const d=state.designs.find(x=>x.id===id); if(!d)return;
+ state.activities.unshift({text:`Comment added to ${d.name}: ${text}`,time:"Just now"});
+ state.notifications.unshift({id:"n"+Date.now(),text:`New comment on ${d.name}.`,read:false});
+ save();closeModal();toast("Design comment added.");
+}
+function addMaterialComment(id){
+ const m=state.materials.find(x=>x.id===id); if(!m)return;
+ openModal(`<h2>Comment on material</h2><p class="sub">${esc(m.name)} · ${esc(m.brand)}</p><div class="field"><label>Comment *</label><textarea id="materialComment" rows="5" placeholder="Add a note about this material..."></textarea></div><div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="submitMaterialComment('${m.id}')">Add comment</button></div>`);
+}
+function submitMaterialComment(id){
+ const text=document.getElementById("materialComment")?.value.trim(); if(!text){toast("Please add a comment.");return}
+ const m=state.materials.find(x=>x.id===id); if(!m)return;
+ state.activities.unshift({text:`Material comment: ${m.name} — ${text}`,time:"Just now"});
+ state.notifications.unshift({id:"n"+Date.now(),text:`New comment on ${m.name}.`,read:false});
+ save();closeModal();toast("Material comment added.");
+}
+function viewLead(id){
+ const l=state.leads.find(x=>x.id===id); if(!l)return;
+ openModal(`<div class="row"><div><div class="eyebrow">LEAD DETAILS</div><h2>${esc(l.name)}</h2></div><button class="btn" onclick="closeModal()">×</button></div><div class="grid g2"><div class="card flat"><div class="muted">Project</div><b>${esc(l.project)}</b></div><div class="card flat"><div class="muted">Stage</div><b>${esc(l.stage)}</b></div><div class="card flat"><div class="muted">Location</div><b>${esc(l.place)}</b></div><div class="card flat"><div class="muted">Budget</div><b>${esc(l.budget)}</b></div><div class="card flat"><div class="muted">Style</div><b>${esc(l.style)}</b></div></div><div class="row" style="margin-top:15px"><button class="btn" onclick="closeModal()">Close</button><button class="btn primary" onclick="closeModal();leadMove('${l.id}',1)">Move to next stage →</button></div>`);
+}
+function quotation(){
+ const sub=state.quotation.items.reduce((a,x)=>a+x[1],0),tax=Math.round(sub*.18),total=sub+tax;
+ return `<div class="card"><div class="row"><div><h3>Quotation ${state.quotation.id}</h3><div class="muted">Version ${state.quotation.version} · ${state.quotation.status}</div></div><span class="pill ${state.quotation.status==="Approved"?"green":"amber"}">${state.quotation.status}</span></div><table class="table"><thead><tr><th>Item</th><th>Amount</th></tr></thead><tbody>${state.quotation.items.map(x=>`<tr><td>${x[0]}</td><td>${money(x[1])}</td></tr>`).join("")}</tbody><tfoot><tr><td>Subtotal</td><td>${money(sub)}</td></tr><tr><td>Tax (18%)</td><td>${money(tax)}</td></tr><tr><th>Total</th><th>${money(total)}</th></tr></tfoot></table><div class="row" style="margin-top:16px"><button class="btn" onclick="downloadQuotation()">Download</button><button class="btn" onclick="quotationRevision()">Request Revision</button>${state.quotation.status==="Approved"?`<button class="btn" disabled>Approved ✓</button>`:`<button class="btn accent" onclick="approveQuotation()">Approve Quotation</button>`}</div></div>`
+}
+function downloadQuotation(){
+ const sub=state.quotation.items.reduce((a,x)=>a+x[1],0),tax=Math.round(sub*.18),total=sub+tax;
+ const text=[`InteriorHub Quotation ${state.quotation.id}`,`Version ${state.quotation.version}`,"",...state.quotation.items.map(x=>`${x[0]}: ${money(x[1])}`),"",`Subtotal: ${money(sub)}`,`Tax (18%): ${money(tax)}`,`Total: ${money(total)}`].join("\n");
+ const blob=new Blob([text],{type:"text/plain"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=`${state.quotation.id}.txt`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast("Quotation downloaded.");
+}
+function approveQuotation(){state.quotation.status="Approved";state.activities.unshift({text:"Quotation v3 approved by Aditi.",time:"Just now"});state.notifications.unshift({id:"n"+Date.now(),text:"Quotation approved.",read:false});save();toast("Quotation approved successfully.")}
+function quotationRevision(){openModal(`<h2>Request quotation revision</h2><p class="sub">Quotation ${state.quotation.id}</p><textarea id="quoteRev" rows="5" style="width:100%;border:1px solid var(--line);border-radius:10px;padding:12px" placeholder="Tell the designer what should change..."></textarea><div class="row" style="margin-top:15px"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="submitQuoteRevision()">Send request</button></div>`)}
+function submitQuoteRevision(){const t=document.getElementById("quoteRev")?.value.trim();if(!t){toast("Please add a revision note.");return}state.activities.unshift({text:"Quotation revision requested: "+t,time:"Just now"});state.notifications.unshift({id:"n"+Date.now(),text:"Customer requested quotation revision.",read:false});save();closeModal();toast("Revision request sent.")}
+function materials(){
+ return `<div class="row"><div><h3>Material board</h3><p class="sub">Review products before procurement.</p></div><span class="pill">${state.materials.filter(m=>m.status==="Approved").length} approved</span></div><div class="grid g3">${state.materials.map(m=>`<div class="card"><div class="cover">${m.brand} · ${m.name}</div><b>${esc(m.name)}</b><div class="muted">${m.brand} · ${m.code}</div><div style="margin:10px 0">${m.finish} · ${money(m.price)} × ${m.qty} = ${money(m.price*m.qty)}</div><div class="row"><span class="pill ${m.status==="Approved"?"green":m.status==="Rejected"?"red":"amber"}">${m.status}</span>${m.status==="Pending"?`<div class="row"><button class="btn small accent" onclick="materialAction('${m.id}','Approved')">Approve</button><button class="btn small danger" onclick="materialAction('${m.id}','Rejected')">Reject</button></div>`:`<button class="btn small" onclick="addMaterialComment('${m.id}')">Comment</button>`}</div></div>`).join("")}</div>`
+}
+function materialAction(id,status){const m=state.materials.find(x=>x.id===id);if(!m)return;if(status==="Rejected"){openModal(`<h2>Reject material?</h2><p class="sub">${esc(m.name)}</p><div class="field"><label>Reason *</label><textarea id="matReason" rows="4" placeholder="Explain what needs to change."></textarea></div><div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="confirmMaterial('${id}')">Reject</button></div>`);return}m.status=status;state.activities.unshift({text:`${m.name} approved`,time:"Just now"});save();toast("Material approved.")}
+function confirmMaterial(id){const reason=document.getElementById("matReason")?.value.trim();if(!reason){toast("Please add a reason.");return}const m=state.materials.find(x=>x.id===id);m.status="Rejected";state.activities.unshift({text:`${m.name} rejected: ${reason}`,time:"Just now"});save();closeModal();toast("Material rejected.");}
+function tasks(){return `<div class="row"><div><h3>Tasks</h3><p class="sub">Keep execution responsibilities clear.</p></div><button class="btn primary" onclick="addTask()">+ Add task</button></div><div class="grid g2">${state.tasks.map(t=>`<div class="card"><div class="row"><b>${esc(t.title)}</b><span class="pill ${t.priority==="High"?"red":""}">${t.priority}</span></div><div class="muted">${t.assigned} · Due ${t.due}</div><div style="margin:12px 0"><span class="pill">${t.status}</span></div><select onchange="changeTask('${t.id}',this.value)"><option ${t.status==="Todo"?"selected":""}>Todo</option><option ${t.status==="In Progress"?"selected":""}>In Progress</option><option ${t.status==="Blocked"?"selected":""}>Blocked</option><option ${t.status==="Completed"?"selected":""}>Completed</option></select></div>`).join("")}</div>`}
+function changeTask(id,status){const t=state.tasks.find(x=>x.id===id);t.status=status;state.activities.unshift({text:`Task updated: ${t.title} → ${status}`,time:"Just now"});save();toast("Task updated.");}
+function addTask(){openModal(`<h2>Add task</h2><div class="field"><label>Title *</label><input id="taskTitle"></div><div class="grid g2"><div class="field"><label>Due</label><input id="taskDue" placeholder="15 Sep"></div><div class="field"><label>Priority</label><select id="taskPriority"><option>Low</option><option>Medium</option><option>High</option></select></div></div><div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="submitTask()">Add task</button></div>`)}
+function submitTask(){const title=document.getElementById("taskTitle")?.value.trim();if(!title){toast("Task title is required.");return}state.tasks.push({id:"t"+Date.now(),title,assigned:state.role==="designer"?"Studio Nest":"Aditi",due:document.getElementById("taskDue").value||"TBD",priority:document.getElementById("taskPriority").value,status:"Todo"});save();closeModal();toast("Task added.");}
+function timeline(){return `<div class="card"><h3>Project timeline</h3>${[["12 Aug","Site measurement","done"],["16 Aug","Concept design","done"],["20 Aug","Design approved","done"],["25 Aug","Materials selected","done"],["01 Sep","Manufacturing","now"],["18 Sep","Installation",""],["30 Sep","Final handover",""]].map(x=>`<div class="timeline-item"><span class="dot ${x[2]}"></span><div><div class="muted">${x[0]}</div><b>${x[1]}</b><div class="muted">${x[2]==="done"?"Completed":x[2]==="now"?"In progress":"Upcoming"}</div></div></div>`).join("")}</div>`}
+function siteUpdates(){return `<div class="row"><div><h3>Site updates</h3><p class="sub">Execution updates from the site.</p></div>${state.role==="designer"?`<button class="btn primary" onclick="addSiteUpdate()">+ Site Update</button>`:""}</div><div class="grid g2">${state.siteUpdates.map(u=>`<div class="card"><div class="cover">${u.title} · ${u.progress}%</div><div class="row"><b>${esc(u.title)}</b><span class="pill">${u.date}</span></div><p class="sub">${esc(u.desc)}</p><div class="bar"><div class="fill" style="width:${u.progress}%"></div></div></div>`).join("")}</div>`}
+function addSiteUpdate(){openModal(`<h2>New site update</h2><div class="field"><label>Title *</label><input id="suTitle" placeholder="Kitchen installation"></div><div class="field"><label>Description</label><textarea id="suDesc" rows="4"></textarea></div><div class="field"><label>Progress %</label><input id="suProg" type="number" min="0" max="100" value="${state.project.progress}"></div><div class="field"><label>Photos</label><input type="file" multiple></div><div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="submitSiteUpdate()">Publish</button></div>`)}
+function submitSiteUpdate(){const title=document.getElementById("suTitle")?.value.trim();if(!title){toast("Title is required.");return}const p=Math.max(0,Math.min(100,Number(document.getElementById("suProg").value)||0));state.siteUpdates.unshift({title,desc:document.getElementById("suDesc").value.trim(),progress:p,date:"Today"});state.project.progress=p;state.activities.unshift({text:`Site update uploaded: ${title}`,time:"Just now"});save();closeModal();toast("Site update published.");}
+function projectMessages(){
+ const atts=state.chatDraft?.attachments||[];
+ const refs=state.chatDraft?.references||[];
+ return `<div class="card"><div class="row"><div><h3>Project chat</h3><div class="muted">${esc(state.project.name)} · ${esc(state.project.designer)}</div></div><span class="pill green">Project-linked</span></div>
+ <div class="chat" id="chatBox">${state.messages.map(m=>`<div class="bubble ${m.from==="customer"?"me":""}"><div>${esc(m.text)}</div>${m.attachments?.length?`<div class="attachment-row">${m.attachments.map(a=>a.dataUrl?`<a class="attachment-chip" href="${a.dataUrl}" download="${esc(a.name)}" target="_blank" rel="noopener">📎 ${esc(a.name)}</a>`:`<span class="attachment-chip">📎 ${esc(a.name)}</span>`).join("")}</div>`:""}${m.references?.length?`<div class="attachment-row">${m.references.map(r=>`<span class="attachment-chip reference-chip">↗ ${esc(r.label)}</span>`).join("")}</div>`:""}</div>`).join("")}</div>
+ <div class="row" style="margin-top:12px"><input id="chatInput" class="chat-input" placeholder="Write a message..." onkeydown="if(event.key==='Enter'){event.preventDefault();sendMessage()}"><button class="btn primary" onclick="sendMessage()">Send</button></div>
+ ${atts.length?`<div class="attachment-row">${atts.map((a,i)=>`<span class="attachment-chip">📎 ${esc(a.name)} <button type="button" onclick="removeChatAttachment(${i})">×</button></span>`).join("")}</div>`:""}
+ ${refs.length?`<div class="attachment-row">${refs.map((r,i)=>`<span class="attachment-chip reference-chip">↗ ${esc(r.label)} <button type="button" onclick="removeChatReference(${i})">×</button></span>`).join("")}</div>`:""}
+ <div class="chat-actions" style="margin-top:10px">
+  <input id="chatFileInput" type="file" multiple hidden onchange="handleChatFiles(this.files)">
+  <button class="btn small" onclick="document.getElementById('chatFileInput').click()">Attach file</button>
+  <button class="btn small" onclick="openReferencePicker('design')">Reference design</button>
+  <button class="btn small" onclick="openReferencePicker('quote')">Reference quote</button>
+ </div></div>`
+}
+function handleChatFiles(files){
+ const incoming=[...(files||[])];
+ if(!incoming.length)return;
+ const max=5*1024*1024;
+ const valid=incoming.filter(f=>f.size<=max);
+ if(valid.length<incoming.length)toast("Files over 5 MB were skipped.");
+ let remaining=valid.length;
+ if(!state.chatDraft)state.chatDraft={attachments:[],references:[]};
+ valid.forEach(file=>{
+  const reader=new FileReader();
+  reader.onload=()=>{state.chatDraft.attachments.push({name:file.name,type:file.type||"application/octet-stream",size:file.size,dataUrl:String(reader.result||"")});remaining--;if(remaining===0){save();render();toast(valid.length+" file"+(valid.length>1?"s":"")+" attached.");}};
+  reader.onerror=()=>{remaining--;if(remaining===0){save();render();toast("Some files could not be attached.");}};
+  reader.readAsDataURL(file);
+ });
+}
+function removeChatAttachment(i){state.chatDraft.attachments.splice(i,1);save();render()}
+function removeChatReference(i){state.chatDraft.references.splice(i,1);save();render()}
+function openReferencePicker(type){
+ const items=type==="design"?state.designs.map(d=>({id:d.id,label:`${d.name} ${d.version}`})): [{id:state.quotation.id,label:`Quotation ${state.quotation.id} · v${state.quotation.version}`}];
+ openModal(`<h2>${type==="design"?"Reference a design":"Reference the quotation"}</h2><p class="sub">Attach a project reference to your next message.</p><div class="grid">${items.map(x=>`<button class="btn" style="text-align:left" onclick="addChatReference('${type}','${x.id}','${esc(x.label)}')">${esc(x.label)}</button>`).join("")}</div><div class="row" style="margin-top:15px"><button class="btn" onclick="closeModal()">Cancel</button></div>`);
+}
+function addChatReference(type,id,label){
+ if(!state.chatDraft)state.chatDraft={attachments:[],references:[]};
+ state.chatDraft.references.push({type,id,label});
+ save();closeModal();render();toast("Reference added to message.");
+}
+async function sendMessage(){
+ const el=document.getElementById("chatInput");const text=el?.value.trim()||"";const atts=state.chatDraft?.attachments||[];const refs=state.chatDraft?.references||[];
+ if(!text&&!atts.length&&!refs.length){toast("Write a message or attach something first.");return}
+ const message={id:"m"+Date.now(),projectId:state.project.id,from:state.role,text:text||"Shared an attachment/reference.",attachments:atts.slice(),references:refs.slice(),createdAt:new Date().toISOString()};
+ try{const r=await apiFetch("/api/messages",{method:"POST",headers:authHeaders(),body:JSON.stringify({message})});if(r.message)state.messages.push(r.message);state.chatDraft={attachments:[],references:[]};state.activities.unshift({text:"New project message sent",time:"Just now"});state.notifications.unshift({id:"n"+Date.now(),text:"New project message.",read:false});save(false);render();toast("Message sent.")}catch(e){toast(e.message||"Message could not be sent.")}
+}
+function payments(){
+ const paid=state.payments.filter(p=>p.status==="Paid").reduce((a,p)=>a+p.amount,0);
+ return `<div class="card"><div class="row"><div><h3>Payment milestones</h3><div class="muted">Project value ${money(state.project.value)}</div></div><span class="pill green">${money(paid)} paid</span></div><table class="table"><thead><tr><th>Milestone</th><th>Amount</th><th>Status</th><th></th></tr></thead><tbody>${state.payments.map((p,i)=>`<tr><td><b>${p.name}</b></td><td>${money(p.amount)}</td><td><span class="pill ${p.status==="Paid"?"green":p.status==="Due"?"amber":""}">${p.status}</span></td><td>${p.status==="Due"?`<button class="btn small accent" onclick="payMilestone(${i})">Record payment</button>`:""}</td></tr>`).join("")}</tbody></table></div>`
+}
+function payMilestone(i){openModal(`<h2>Confirm payment</h2><p class="sub">Record ${money(state.payments[i].amount)} for ${state.payments[i].name}.</p><div class="notice">This is a simulated payment for the demo. No money will be charged.</div><div class="row" style="margin-top:16px"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="confirmPayment(${i})">Confirm payment</button></div>`)}
+function confirmPayment(i){state.payments[i].status="Paid";state.activities.unshift({text:`Payment milestone completed: ${state.payments[i].name}`,time:"Just now"});state.notifications.unshift({id:"n"+Date.now(),text:`Payment recorded for ${state.payments[i].name}.`,read:false});save();closeModal();toast("Payment recorded.");}
+function projectMessagesPage(){return `<div class="eyebrow">MESSAGES</div><h1>Conversations</h1><p class="sub">Your conversations stay linked to projects.</p><div class="card link-card" onclick="openWorkspace('Messages')"><div class="row"><div><b>Studio Nest</b><div class="muted">${state.project.name} · Last message: ${esc(state.messages.at(-1)?.text||"No messages")}</div></div><span class="pill green">Project chat</span></div></div>${state.consultations.length?`<div style="height:12px"></div><div class="card"><h3>Consultation requests</h3>${state.consultations.map(c=>`<div class="activity"><b>${c.designer}</b><div class="muted">${c.project} · ${c.status}</div></div>`).join("")}</div>`:""}`
+}
+function notificationsPage(){return `<div class="eyebrow">NOTIFICATIONS</div><div class="row"><div><h1>Notification center</h1><p class="sub">Stay on top of approvals, messages and project changes.</p></div><button class="btn" onclick="markAllRead()">Mark all read</button></div><div class="card">${state.notifications.map(n=>`<div class="activity link-card" onclick="readNotification('${n.id}')"><div class="row"><b>${esc(n.text)}</b>${n.read?"":"<span class='pill red'>NEW</span>"}</div><div class="muted">InteriorHub · Today</div></div>`).join("")||`<div class="empty">You're all caught up.</div>`}</div>`}
+function readNotification(id){const n=state.notifications.find(x=>x.id===id);if(n)n.read=true;save();render()}
+function markAllRead(){state.notifications.forEach(n=>n.read=true);save();render();toast("All notifications marked read.");}
+function designerDash(){
+ return `<div class="eyebrow">DESIGNER DASHBOARD</div><h1>Good morning, Studio Nest</h1><p class="sub">A focused workspace for leads, projects and client delivery.</p><div class="grid g4">${[["₹42L","Pipeline"],["14","New Leads"],["6","Active Projects"],["62","Completed Projects"]].map(x=>`<div class="card"><div class="muted">${x[1]}</div><div class="metric">${x[0]}</div></div>`).join("")}</div><div style="height:18px"></div><div class="grid g2"><div class="card"><div class="row"><h3>New activity</h3><span class="pill">${state.consultations.filter(c=>c.status==="New").length} new</span></div>${state.consultations.length?state.consultations.slice(-4).reverse().map(c=>`<div class="activity"><b>${c.designer}</b><div class="muted">${c.project} · ${c.status}</div></div>`).join(""):`<div class="empty">No new consultation requests.</div>`}</div><div class="card"><h3>Active projects</h3>${[["My 2BHK Interior","Aditi","₹8.6L",64],["3BHK Indiranagar","Sneha Rao","₹13.2L",38],["Villa Sarjapur","Arjun Shah","₹24L",82]].map(x=>`<div class="activity"><div class="row"><b>${x[0]}</b><span>${x[3]}%</span></div><div class="muted">${x[1]} · ${x[2]}</div><div class="bar" style="margin-top:7px"><div class="fill" style="width:${x[3]}%"></div></div></div>`).join("")}</div></div>`
+}
+function leadsPage(){
+ const stages=["NEW","CONTACTED","CONSULTATION","PROPOSAL","WON","LOST"];
+ return `<div class="eyebrow">DESIGNER CRM</div><h1>Lead pipeline</h1><p class="sub">Move enquiries from first contact to signed project.</p><div class="kanban"><div class="kanban-grid">${stages.map(s=>`<div class="card flat"><div class="row"><b>${s}</b><span class="pill">${state.leads.filter(l=>l.stage===s).length}</span></div>${state.leads.filter(l=>l.stage===s).map(l=>`<div class="lead"><b>${esc(l.name)}</b><div class="muted">${esc(l.project)}</div><div class="muted">${esc(l.place)}</div><div class="muted">${l.budget} · ${l.style}</div><div class="row" style="margin-top:8px"><button class="btn small" onclick="leadMove('${l.id}',-1)">←</button><button class="btn small" onclick="leadMove('${l.id}',1)">→</button><button class="btn small" onclick="viewLead('${l.id}')">View</button></div></div>`).join("")||`<div class="empty" style="padding:18px 4px">Empty</div>`}</div>`).join("")}</div></div>`
+}
+function leadMove(id,dir){const stages=["NEW","CONTACTED","CONSULTATION","PROPOSAL","WON","LOST"],l=state.leads.find(x=>x.id===id);if(!l)return;let i=stages.indexOf(l.stage),ni=Math.max(0,Math.min(stages.length-1,i+dir));l.stage=stages[ni];save();toast(`Lead moved to ${l.stage}`);}
+function designerProjects(){
+ const rows=[
+  ["IH-2026-001","My 2BHK Interior","Aditi","₹8.6L",64,"Execution"],
+  ["IH-DEMO-002","3BHK Indiranagar","Sneha Rao","₹13.2L",38,"Design"],
+  ["IH-DEMO-003","Villa Sarjapur","Arjun Shah","₹24L",82,"Execution"]
+ ];
+ return `<div class="eyebrow">PROJECTS</div><h1>Project management</h1><p class="sub">The same client project workspace, from the designer side.</p><div class="card"><table class="table"><thead><tr><th>Project</th><th>Customer</th><th>Budget</th><th>Progress</th><th>Status</th><th></th></tr></thead><tbody>${rows.map(x=>`<tr><td><b>${x[1]}</b></td><td>${x[2]}</td><td>${x[3]}</td><td>${x[4]}%</td><td><span class="pill">${x[5]}</span></td><td><button class="btn small" onclick="openWorkspace('Overview','${x[0]}')">Open</button></td></tr>`).join("")}</tbody></table></div>`
+}
+function clientsPage(){return `<div class="eyebrow">CLIENTS</div><h1>Client management</h1><p class="sub">Open a client to continue the project conversation.</p><div class="grid g2"><div class="card link-card" onclick="openWorkspace()"><div class="row"><div><h3>Aditi</h3><div class="muted">My 2BHK Interior · ₹8.6L</div></div><span class="pill green">Execution</span></div><div class="muted" style="margin-top:10px">Last activity: Today</div></div><div class="card"><h3>Sneha Rao</h3><div class="muted">3BHK Indiranagar · ₹13.2L</div><span class="pill" style="margin-top:10px">Design</span></div></div>`}
+function portfolioPage(){return `<div class="row"><div><div class="eyebrow">PORTFOLIO</div><h1>Studio Nest portfolio</h1></div><button class="btn primary" onclick="addPortfolio()">+ Add project</button></div><div class="grid g3">${state.portfolio.map((p,i)=>`<div class="card"><div class="cover">${esc(p.name)}</div><b>${esc(p.name)}</b><div class="muted">${p.place}</div><div class="muted">${p.type} · ${p.budget} · ${p.style}</div><button class="btn small danger" style="margin-top:10px" onclick="deletePortfolio(${i})">Delete</button></div>`).join("")}</div>`}
+function addPortfolio(){openModal(`<h2>Add portfolio project</h2><div class="field"><label>Project title *</label><input id="ppName"></div><div class="grid g2"><div class="field"><label>Location</label><input id="ppPlace" placeholder="Bangalore"></div><div class="field"><label>Property type</label><select id="ppType"><option>2BHK</option><option>3BHK</option><option>Villa</option><option>Office</option></select></div></div><div class="grid g2"><div class="field"><label>Budget</label><input id="ppBudget" placeholder="₹10–12L"></div><div class="field"><label>Style</label><input id="ppStyle" placeholder="Modern"></div></div><div class="field"><label>Description</label><textarea id="ppDesc"></textarea></div><div class="field"><label>Images</label><input type="file" multiple></div><div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="submitPortfolio()">Add project</button></div>`)}
+function submitPortfolio(){const name=document.getElementById("ppName")?.value.trim();if(!name){toast("Project title is required.");return}state.portfolio.push({name,place:document.getElementById("ppPlace").value||"Bangalore",type:document.getElementById("ppType").value,budget:document.getElementById("ppBudget").value||"To be discussed",style:document.getElementById("ppStyle").value||"Modern"});save();closeModal();toast("Portfolio project added.");}
+function deletePortfolio(i){openModal(`<h2>Delete portfolio project?</h2><p class="sub">This action can be undone only by resetting demo data.</p><div class="row"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn danger" onclick="state.portfolio.splice(${i},1);save();closeModal();toast('Portfolio project deleted.');">Delete</button></div>`)}
+function verificationPage(){return `<div class="eyebrow">VERIFICATION</div><h1>Designer verification</h1><p class="sub">Build trust before designers receive high-value projects.</p><div class="grid g2">${state.verification.map((v,i)=>`<div class="card"><div class="row"><div><h3>${v.name}</h3><div class="muted">${v.type}</div></div><span class="pill ${v.status==="Verified"?"green":"amber"}">${v.status}</span></div><div class="row" style="margin-top:14px">${v.status==="Pending"?`<button class="btn accent" onclick="verify(${i})">Verify</button><button class="btn danger" onclick="rejectVerify(${i})">Reject</button>`:`<button class="btn" disabled>Verified ✓</button>`}</div></div>`).join("")}</div>`}
+function verify(i){state.verification[i].status="Verified";save();toast("Designer verified.");}
+function rejectVerify(i){openModal(`<h2>Reject verification?</h2><textarea id="vr" rows="4" style="width:100%;border:1px solid var(--line);border-radius:10px;padding:12px" placeholder="Reason"></textarea><div class="row" style="margin-top:14px"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn danger" onclick="state.verification.splice(${i},1);save();closeModal();toast('Verification rejected.');render()">Reject</button></div>`)}
+function adminDash(){return `<div class="eyebrow">ADMIN CONSOLE</div><h1>Platform overview</h1><p class="sub">Trust, projects, payments and marketplace health.</p><div class="grid g4">${[["12,480","Total users"],["1,240","Designers"],["860","Verified designers"],["318","Active projects"],["2,940","Completed projects"],["₹18.6L","Platform revenue"],["7","Open disputes"]].map(x=>`<div class="card"><div class="muted">${x[1]}</div><div class="metric">${x[0]}</div></div>`).join("")}</div><div style="height:18px"></div><div class="grid g2"><div class="card"><div class="row"><h3>Verification queue</h3><button class="btn small" onclick="nav('verification')">Open</button></div>${state.verification.slice(0,2).map(v=>`<div class="activity"><b>${v.name}</b><div class="muted">${v.type}</div></div>`).join("")}</div><div class="card"><h3>Recent disputes</h3><div class="activity"><b>Project #IH-2041</b><div class="muted">Quotation revision requested</div></div><div class="activity"><b>Project #IH-2034</b><div class="muted">Installation delay complaint</div></div></div></div>`}
+function settingsPage(){return `<div class="eyebrow">SETTINGS</div><h1>Workspace settings</h1><p class="sub">Security, backend connection and local demo controls.</p><div class="grid g2"><div class="card"><h3>Backend</h3><div class="activity"><b>${apiOnline?"Connected":"Offline / not configured"}</b><div class="muted">${API_BASE||"No API URL configured. When served by the included backend, this uses the same origin."}</div></div><button class="btn" onclick="checkBackend().then(()=>toast(apiOnline?'Backend is reachable.':'Backend is not reachable.'))">Test connection</button></div><div class="card"><h3>Security</h3><div class="activity"><b>Role-based access</b><div class="muted">Role is taken from the authenticated account; there is no in-app role switch.</div></div><div class="activity"><b>SMS OTP</b><div class="muted">Available through the backend when an SMS provider is configured.</div></div></div></div><div class="card" style="margin-top:18px"><h3>Demo data</h3><p class="sub">Reset local approvals, projects, messages, leads and other demo changes.</p><button class="btn danger" onclick="resetDemo()">Reset local demo data</button></div>`}
+function generic(title){
+ const actions={
+  "designers":()=>openModal(`<h2>Designer directory</h2><p class="sub">Verified marketplace designers currently visible to customers.</p>${state.designers.map(d=>`<div class="activity"><div class="row"><b>${esc(d.name)}</b><span class="pill ${d.verified?"green":"amber"}">${d.verified?"Verified":"Pending"}</span></div><div class="muted">${d.location} · ${d.budget} · ★ ${d.rating}</div></div>`).join("")}<div class="row" style="margin-top:15px"><button class="btn" onclick="closeModal()">Close</button></div>`),
+  "payments":()=>nav(state.role==="designer"?"payments":"payments"),
+  "reports":()=>openModal(`<h2>Platform report</h2><p class="sub">Demo snapshot generated from current local state.</p><div class="grid g2"><div class="card flat"><b>${state.users.length}</b><div class="muted">Registered demo users</div></div><div class="card flat"><b>${state.consultations.length}</b><div class="muted">Consultation requests</div></div><div class="card flat"><b>${state.messages.length}</b><div class="muted">Project messages</div></div><div class="card flat"><b>${state.designs.length}</b><div class="muted">Design versions</div></div></div><div class="row" style="margin-top:15px"><button class="btn" onclick="closeModal()">Close</button></div>`),
+ };
+ const fn=actions[title.toLowerCase()];
+ return `<div class="card"><div class="eyebrow">INTERIORHUB</div><h1>${esc(title)}</h1><p class="sub">${title==="Designers"?"Review marketplace designers and verification status.":title==="Reports"?"Review live demo metrics.":"This section is connected to the shared demo state."}</p><button class="btn primary" onclick="${fn?`(${fn.toString()})()`:`toast('${esc(title)} is available in this demo.')`}">${title==="Designers"?"Open directory":title==="Reports"?"Open report":"Continue"}</button></div>`
+}
+
+
+function authPage(){
+ const signup=state.authView!=="login"; const method=state.authMethod||"email"; const role=state.tempAuthRole||"customer";
+ return `<div class="auth-page"><div class="auth-brand"><div class="brand">Interior<span>Hub</span></div><div class="muted">Find. Collaborate. Build.</div></div><div class="auth-card card"><div class="eyebrow">${signup?"GET STARTED":"WELCOME BACK"}</div><h1>${signup?"Create your InteriorHub account":"Sign in to InteriorHub"}</h1><p class="sub">${signup?"Start your interior project workspace in minutes.":"Continue to your projects, designers and conversations."}</p>
+ <div class="auth-tabs"><button class="auth-tab ${method==="email"?"active":""}" onclick="setAuthView('${signup?"signup":"login"}','email')">Email</button><button class="auth-tab ${method==="phone"?"active":""}" onclick="setAuthView('${signup?"signup":"login"}','phone')">SMS OTP</button></div>
+ ${signup?`<div class="auth-choice" style="display:flex;gap:8px;margin-bottom:12px"><button class="btn ${role==="customer"?"primary":""}" style="flex:1" onclick="setAuthRole('customer')">Homeowner</button><button class="btn ${role==="designer"?"primary":""}" style="flex:1" onclick="setAuthRole('designer')">Designer</button></div><div class="field"><label>Full name *</label><input id="authName" placeholder="Your full name"></div>`:""}
+ ${method==="email"?`<div class="field"><label>Email *</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Password *</label><input id="authPassword" type="password" autocomplete="${signup?"new-password":"current-password"}" placeholder="At least 8 characters"></div>`:`<div class="field"><label>Mobile number *</label><input id="authPhone" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210"></div><div class="otp-note">We'll send a one-time verification code by SMS. Never share your OTP.</div><div class="row" style="margin-top:10px"><button class="btn" onclick="requestOtp('${signup?"signup":"login"}')">Send OTP</button></div><div class="field"><label>OTP</label><input id="authOtp" inputmode="numeric" maxlength="6" placeholder="6-digit code"></div>`}
+ ${signup&&role==="designer"?`<div class="field"><label>Studio name</label><input id="authStudio" placeholder="Studio Nest"></div>`:""}
+ <button class="btn primary" style="width:100%;margin-top:10px" onclick="${method==="email"?`submitAuth('${signup?"signup":"login"}')`:`verifyOtp('${signup?"signup":"login"}')`}">${signup?"Create account":"Sign in"}</button>
+ <div class="auth-switch">${signup?`Already have an account? <button class="link-btn" onclick="setAuthView('login','email')">Log in</button>`:`New to InteriorHub? <button class="link-btn" onclick="setAuthView('signup','email')">Create account</button>`}</div><div class="notice" style="margin-top:16px;text-align:center"><span id="authBackendStatus">Checking secure backend…</span><div style="margin-top:8px"><button class="btn small" onclick="checkBackend();toast('Checking backend connection…')">Retry connection</button></div></div>
+ <div class="muted" style="margin-top:14px;text-align:center;font-size:11px">By continuing, you agree to InteriorHub's Terms and Privacy Policy.</div></div></div>`
+}
+function setAuthView(view,method){state.authView=view;state.authMethod=method;render()}
+function setAuthRole(role){state.tempAuthRole=role;render()}
+function openAuth(mode="login",role="customer",method="email"){state.authView=mode;state.authMethod=method;state.tempAuthRole=role;closeModal();render()}
+async function requestOtp(purpose){
+ const phone=document.getElementById("authPhone")?.value.trim();
+ if(!/^\+?[1-9]\d{9,14}$/.test(phone.replace(/\s+/g,""))){toast("Enter a valid international mobile number.");return}
+ try{
+  const r=await apiFetch("/api/auth/request-otp",{method:"POST",body:JSON.stringify({phone:phone.replace(/\s+/g,""),purpose})});
+  state.pendingOtpPhone=phone.replace(/\s+/g,"");state.pendingOtpPurpose=purpose;save();
+  if(r.devOtp) toast("Development OTP: "+r.devOtp); else toast("OTP sent by SMS.");
+ }catch(e){toast(e.message||"Unable to send OTP.")}
+}
+async function verifyOtp(mode){
+ const phone=state.pendingOtpPhone||document.getElementById("authPhone")?.value.trim();
+ const otp=document.getElementById("authOtp")?.value.trim();
+ if(!phone||!/^[0-9]{6}$/.test(otp||"")){toast("Enter the 6-digit OTP.");return}
+ try{
+  const r=await apiFetch("/api/auth/verify-otp",{method:"POST",body:JSON.stringify({phone,otp,purpose:state.pendingOtpPurpose||"login",role:state.tempAuthRole||"customer",name:document.getElementById("authName")?.value.trim()||"InteriorHub User",studio:document.getElementById("authStudio")?.value.trim()||""})});
+  if(r.token){state.auth={loggedIn:true,token:r.token,user:r.user};state.page="dashboard";syncRoleFromAccount();save();closeModal();render();toast("Signed in securely.");return}
+ }catch(e){
+  // Backend is unavailable: do not silently fake an OTP login.
+  toast(e.message||"Authentication service unavailable.");
+ }
+}
+function chooseAuthRole(r){
+ state.tempAuthRole=r;
+ document.getElementById("arCustomer").className="btn "+(r==="customer"?"primary":"");
+ document.getElementById("arDesigner").className="btn "+(r==="designer"?"primary":"");
+ const f=document.getElementById("studioField");if(f)f.style.display=r==="designer"?"block":"none";
+}
+
+async function submitAuth(mode){
+ const name=document.getElementById("authName")?.value.trim()||"";
+ const email=document.getElementById("authEmail")?.value.trim().toLowerCase()||"";
+ const pass=document.getElementById("authPassword")?.value||"";
+ if(mode==="signup"&&!name){toast("Please enter your full name.");return}
+ if(!/^\S+@\S+\.\S+$/.test(email)){toast("Enter a valid email address.");return}
+ if(pass.length<8){toast("Password must be at least 8 characters.");return}
+ try{
+  const endpoint=mode==="signup"?"/api/auth/signup":"/api/auth/login";
+  const payload=mode==="signup"?{name,email,password:pass,role:state.tempAuthRole||"customer",studio:document.getElementById("authStudio")?.value.trim()||""}:{email,password:pass};
+  const r=await apiFetch(endpoint,{method:"POST",body:JSON.stringify(payload)});
+  state.auth={loggedIn:true,token:r.token,user:r.user};state.authView="signup";state.page="dashboard";syncRoleFromAccount();
+  await hydrateBackend();
+  startRealtime();closeModal();render();toast(mode==="signup"?"Account created successfully.":"Signed in successfully.");
+ }catch(e){toast(e.message||"Authentication service unavailable.")}
+}
+function profilePage(){const u=state.auth?.user||{};return `<div class="eyebrow">ACCOUNT</div><h1>Profile</h1><p class="sub">Manage your InteriorHub account.</p><div class="card"><div class="row"><div><h3>${esc(u.name||"User")}</h3><div class="muted">${esc(u.email||"")} ${u.phone?`· ${esc(u.phone)}`:""}</div></div><span class="pill green">${esc(roleLabel())}</span></div><hr class="hr"><button class="btn primary" onclick="openProfile()">Edit profile</button></div>`}
+function openProfile(){
+ const u=state.auth?.user||{name:"Aditi",email:"aditi@example.com"};
+ openModal(`<div class="row"><div><div class="eyebrow">ACCOUNT</div><h2>Profile</h2></div><button class="btn" onclick="closeModal()">×</button></div>
+ <div class="field"><label>Name</label><input id="pfName" value="${esc(u.name)}"></div>
+ <div class="field"><label>Email</label><input id="pfEmail" value="${esc(u.email)}"></div>
+ ${state.role==="designer"?`<div class="field"><label>Studio name</label><input id="pfStudio" value="${esc(state.designerProfile.businessName)}"></div><div class="notice">Verification: ${state.designerProfile.verified.identity?"✓ Identity ":"○ Identity "} ${state.designerProfile.verified.business?"✓ Business ":"○ Business "} ${state.designerProfile.verified.portfolio?"✓ Portfolio":"○ Portfolio"}</div>`:""}
+ <div class="row" style="margin-top:16px"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" onclick="saveProfile()">Save changes</button></div>`);
+}
+function saveProfile(){
+ if(!state.auth?.user)return;
+ const oldEmail=state.auth.user.email;
+ state.auth.user.name=document.getElementById("pfName")?.value.trim()||state.auth.user.name;
+ state.auth.user.email=document.getElementById("pfEmail")?.value.trim().toLowerCase()||state.auth.user.email;
+ if(state.users) {
+  const u=state.users.find(x=>x.id===state.auth.user.id);
+  if(u){u.name=state.auth.user.name;u.email=state.auth.user.email}
+ }
+ if(state.role==="designer")state.designerProfile.businessName=document.getElementById("pfStudio")?.value.trim()||state.designerProfile.businessName;
+ state.activities.unshift({text:"Profile updated",time:"Just now"});save();closeModal();toast("Profile updated.");render()
+}
+function consultationInbox(){
+ return `<div class="eyebrow">CONSULTATIONS</div><h1>Consultation requests</h1><p class="sub">Turn enquiries into real conversations with customers.</p><div class="card">${state.consultations.length?state.consultations.map(c=>`<div class="activity"><div class="row"><div><b>${esc(c.project)}</b><div class="muted">${esc(c.designer)} · ${esc(c.date)} · ${esc(c.time)}</div></div><span class="pill ${c.status==="Accepted"?"green":c.status==="Rejected"?"red":"amber"}">${c.status}</span></div><p class="sub">${esc(c.message||"No message added.")}</p>${state.role==="designer"&&c.status==="New"?`<div class="row"><button class="btn small accent" onclick="consultDecision('${c.id}','Accepted')">Accept</button><button class="btn small danger" onclick="consultDecision('${c.id}','Rejected')">Reject</button></div>`:""}</div>`).join(""):`<div class="empty">No consultation requests yet.</div>`}</div>`
+}
+function consultDecision(id,status){
+ const c=state.consultations.find(x=>x.id===id);if(!c)return;
+ c.status=status;state.activities.unshift({text:`Consultation ${status.toLowerCase()}: ${c.designer}`,time:"Just now"});
+ state.notifications.unshift({id:"n"+Date.now(),text:`Consultation ${status.toLowerCase()} — ${c.designer}.`,read:false});
+ save();toast("Consultation "+status.toLowerCase()+".")
+}
+function adminUsers(){
+ return `<div class="eyebrow">USERS</div><h1>Users</h1><p class="sub">Manage the people using InteriorHub.</p><div class="card"><table class="table"><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th></tr></thead><tbody>${state.users.map(u=>`<tr><td><b>${esc(u.name)}</b></td><td>${esc(u.email)}</td><td><span class="pill">${u.role}</span></td><td><span class="pill green">${u.status}</span></td></tr>`).join("")}</tbody></table></div>`
+}
+async function logout(){try{await apiFetch("/api/auth/logout",{method:"POST",headers:authHeaders()})}catch{} stopRealtime();state.auth={loggedIn:false,user:null,token:null};state.authView="signup";state.authMethod="email";state.page="dashboard";state.role="customer";state.chatDraft={attachments:[],references:[]};localStorage.setItem(KEY,JSON.stringify(state));render()}
+function page(){
+ if(state.page==="dashboard")return state.role==="customer"?customerDash():state.role==="designer"?designerDash():adminDash();
+ if(state.page==="discover")return discover();
+ if(state.page==="projects")return projectsPage();
+ if(state.page==="workspace")return workspace();
+ if(state.page==="messages")return state.role==="customer"?projectMessagesPage():projectMessages();
+ if(state.page==="notifications")return notificationsPage();
+ if(state.page==="consultations")return consultationInbox();
+ if(state.page==="users")return adminUsers();
+ if(state.page==="leads")return leadsPage();
+ if(state.page==="clients")return clientsPage();
+ if(state.page==="portfolio")return portfolioPage();
+ if(state.page==="quotations"){openWorkspace("Quotation");return workspace()}
+ if(state.page==="materials"){openWorkspace("Materials");return workspace()}
+ if(state.page==="payments"){openWorkspace("Payments");return workspace()}
+ if(state.page==="verification")return verificationPage();
+ if(state.page==="settings")return settingsPage();
+ if(state.page==="profile")return profilePage();
+ return generic(state.page);
+}
+function resetDemo(){if(confirm("Reset all InteriorHub demo data?")){localStorage.removeItem(KEY);state=load();toast("Demo data reset.");}}
+function render(){
+ try{
+  save();
+  if(state.auth?.loggedIn===false){
+  document.getElementById("root").innerHTML=authPage();
+  }else{
+   document.getElementById("root").innerHTML=shell(page());
+  }
+  renderConnectionBadge();
+ }catch(err){
+  console.error(err);
+  document.getElementById("root").innerHTML=`<div style="min-height:100vh;display:grid;place-items:center;padding:24px"><div class="card" style="max-width:620px"><div class="eyebrow">RECOVERY</div><h1>InteriorHub hit an unexpected error</h1><p class="sub">Your local data is preserved. Try reloading the page, or reset local demo data if the problem persists.</p><div class="row"><button class="btn" onclick="location.reload()">Reload</button><button class="btn danger" onclick="resetDemo()">Reset local data</button></div></div></div>`;
+ }
+}
+if(!state.auth?.loggedIn){state.authView="signup";state.authMethod="email";localStorage.setItem(KEY,JSON.stringify(state));}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,538 @@
+{
+  "users": [
+    {
+      "id": "demo-customer",
+      "name": "Aditi",
+      "email": "aditi@example.com",
+      "phone": "+919876543210",
+      "role": "customer",
+      "status": "Active",
+      "studio": null,
+      "passwordHash": "6d81b329f3385bf60c8b43244e668f4852502c09bed01d40b304a26374ad20652d3fd09f43298690d37cf3844be6ef6b9e7e691b0ea64c5a746b633faa59e196"
+    },
+    {
+      "id": "demo-designer",
+      "name": "Rhea Kapoor",
+      "email": "studio@studionest.in",
+      "phone": "+919876543211",
+      "role": "designer",
+      "status": "Active",
+      "studio": "Studio Nest",
+      "passwordHash": "6d81b329f3385bf60c8b43244e668f4852502c09bed01d40b304a26374ad20652d3fd09f43298690d37cf3844be6ef6b9e7e691b0ea64c5a746b633faa59e196"
+    },
+    {
+      "id": "demo-admin",
+      "name": "InteriorHub Admin",
+      "email": "admin@interiorhub.in",
+      "phone": "+919876543212",
+      "role": "admin",
+      "status": "Active",
+      "studio": null,
+      "passwordHash": "6d81b329f3385bf60c8b43244e668f4852502c09bed01d40b304a26374ad20652d3fd09f43298690d37cf3844be6ef6b9e7e691b0ea64c5a746b633faa59e196"
+    },
+    {
+      "id": "a3e8ea5f-7517-45e2-8d3e-8ad2e7465fd4",
+      "name": "Harsh",
+      "email": "harshhh1701@gmail.com",
+      "phone": null,
+      "role": "customer",
+      "status": "Active",
+      "studio": null,
+      "passwordHash": "ebc800864fe7e9748b4620498e187204a3db4023b818d679b3cabfe067833c4405f88ca0bf88ed0a222649020091ca8343cec62a7f538882cf4c3c299e892671"
+    }
+  ],
+  "state": null,
+  "states": {
+    "a3e8ea5f-7517-45e2-8d3e-8ad2e7465fd4": {
+      "state": {
+        "role": "customer",
+        "page": "workspace",
+        "tab": "Files",
+        "toast": "",
+        "user": {
+          "name": "Aditi"
+        },
+        "project": {
+          "id": "IH-2026-001",
+          "name": "My 2BHK Interior",
+          "customer": "Aditi",
+          "designer": "Studio Nest",
+          "location": "Whitefield, Bangalore",
+          "budget": "₹8–10L",
+          "value": 860000,
+          "progress": 64,
+          "deadline": "30 September"
+        },
+        "projects": [],
+        "designers": [
+          {
+            "id": "d1",
+            "name": "Studio Nest",
+            "rating": 4.9,
+            "reviews": 84,
+            "projects": 62,
+            "years": 7,
+            "budget": "₹6–15L",
+            "location": "Bangalore",
+            "styles": [
+              "Modern",
+              "Minimal"
+            ],
+            "verified": true
+          },
+          {
+            "id": "d2",
+            "name": "Oak & Line Studio",
+            "rating": 4.8,
+            "reviews": 61,
+            "projects": 48,
+            "years": 6,
+            "budget": "₹5–12L",
+            "location": "Bangalore",
+            "styles": [
+              "Contemporary",
+              "Luxury"
+            ],
+            "verified": true
+          },
+          {
+            "id": "d3",
+            "name": "Mysa Interiors",
+            "rating": 4.7,
+            "reviews": 42,
+            "projects": 35,
+            "years": 5,
+            "budget": "₹4–10L",
+            "location": "Bangalore",
+            "styles": [
+              "Scandinavian",
+              "Minimal"
+            ],
+            "verified": true
+          },
+          {
+            "id": "d4",
+            "name": "Form & Hearth",
+            "rating": 4.6,
+            "reviews": 31,
+            "projects": 29,
+            "years": 4,
+            "budget": "₹4–9L",
+            "location": "Mumbai",
+            "styles": [
+              "Modern",
+              "Contemporary"
+            ],
+            "verified": true
+          }
+        ],
+        "shortlist": [],
+        "consultations": [],
+        "activities": [
+          {
+            "text": "New project message sent",
+            "time": "Just now"
+          },
+          {
+            "text": "New project message received",
+            "time": "Just now"
+          },
+          {
+            "text": "New project message sent",
+            "time": "Just now"
+          },
+          {
+            "text": "New project message received",
+            "time": "Just now"
+          },
+          {
+            "text": "Kitchen design v3 uploaded",
+            "time": "Today"
+          },
+          {
+            "text": "Material approval requested",
+            "time": "Yesterday"
+          },
+          {
+            "text": "Site update uploaded",
+            "time": "2 days ago"
+          },
+          {
+            "text": "Payment milestone completed",
+            "time": "3 days ago"
+          }
+        ],
+        "designs": [
+          {
+            "id": "des1",
+            "name": "Living Room",
+            "type": "3D Render",
+            "version": "v3",
+            "status": "Approved"
+          },
+          {
+            "id": "des2",
+            "name": "Kitchen",
+            "type": "3D Render",
+            "version": "v2",
+            "status": "Changes Requested"
+          },
+          {
+            "id": "des3",
+            "name": "Master Bedroom",
+            "type": "Furniture Layout",
+            "version": "v1",
+            "status": "Pending Review"
+          }
+        ],
+        "materials": [
+          {
+            "id": "m1",
+            "name": "Matte Beige Laminate",
+            "brand": "Greenlam",
+            "code": "GL-482",
+            "finish": "Matte",
+            "price": 145,
+            "qty": 38,
+            "status": "Pending"
+          },
+          {
+            "id": "m2",
+            "name": "Soft-close Hinge",
+            "brand": "Hettich",
+            "code": "HT-09",
+            "finish": "Nickel",
+            "price": 680,
+            "qty": 12,
+            "status": "Approved"
+          },
+          {
+            "id": "m3",
+            "name": "Warm White Downlight",
+            "brand": "Philips",
+            "code": "PH-11",
+            "finish": "3000K",
+            "price": 540,
+            "qty": 14,
+            "status": "Pending"
+          }
+        ],
+        "quotation": {
+          "id": "IH-Q-003",
+          "version": 3,
+          "status": "Pending",
+          "items": [
+            [
+              "Modular Kitchen",
+              180000
+            ],
+            [
+              "Wardrobes",
+              150000
+            ],
+            [
+              "TV Unit",
+              45000
+            ],
+            [
+              "False Ceiling",
+              55000
+            ],
+            [
+              "Electrical",
+              35000
+            ],
+            [
+              "Painting",
+              40000
+            ]
+          ]
+        },
+        "tasks": [
+          {
+            "id": "t1",
+            "title": "Finalize kitchen laminate",
+            "assigned": "Studio Nest",
+            "due": "12 Sep",
+            "priority": "High",
+            "status": "In Progress"
+          },
+          {
+            "id": "t2",
+            "title": "Confirm wardrobe handles",
+            "assigned": "Aditi",
+            "due": "10 Sep",
+            "priority": "Medium",
+            "status": "Todo"
+          },
+          {
+            "id": "t3",
+            "title": "Manufacturing QA",
+            "assigned": "Studio Nest",
+            "due": "15 Sep",
+            "priority": "High",
+            "status": "Todo"
+          }
+        ],
+        "messages": [
+          {
+            "id": "m1788951669926",
+            "projectId": "IH-2026-001",
+            "from": "customer",
+            "text": "hello",
+            "attachments": [],
+            "references": [],
+            "createdAt": "2026-09-09T11:01:09.926Z",
+            "sender": {
+              "id": "a3e8ea5f-7517-45e2-8d3e-8ad2e7465fd4",
+              "name": "Harsh",
+              "role": "customer"
+            }
+          },
+          {
+            "id": "m1788951705508",
+            "projectId": "IH-2026-001",
+            "from": "customer",
+            "text": "hi",
+            "attachments": [],
+            "references": [],
+            "createdAt": "2026-09-09T11:01:45.508Z",
+            "sender": {
+              "id": "a3e8ea5f-7517-45e2-8d3e-8ad2e7465fd4",
+              "name": "Harsh",
+              "role": "customer"
+            }
+          }
+        ],
+        "chatDraft": {
+          "attachments": [],
+          "references": []
+        },
+        "notifications": [
+          {
+            "id": "n1788951705517",
+            "text": "New project message.",
+            "read": false
+          },
+          {
+            "id": "n1788951669935",
+            "text": "New project message.",
+            "read": false
+          },
+          {
+            "id": "n1",
+            "text": "Studio Nest uploaded Living Room v3.",
+            "read": false
+          },
+          {
+            "id": "n2",
+            "text": "Material approval requested.",
+            "read": false
+          },
+          {
+            "id": "n3",
+            "text": "Site update uploaded.",
+            "read": true
+          },
+          {
+            "id": "n4",
+            "text": "Payment milestone due.",
+            "read": false
+          }
+        ],
+        "leads": [
+          {
+            "id": "l1",
+            "name": "Rahul Mehta",
+            "project": "2BHK Interior",
+            "place": "Whitefield, Bangalore",
+            "budget": "₹8–10L",
+            "style": "Modern",
+            "stage": "NEW"
+          },
+          {
+            "id": "l2",
+            "name": "Sneha Rao",
+            "project": "3BHK Interior",
+            "place": "Indiranagar, Bangalore",
+            "budget": "₹12–15L",
+            "style": "Minimal",
+            "stage": "CONSULTATION"
+          },
+          {
+            "id": "l3",
+            "name": "Arjun Shah",
+            "project": "Villa Interior",
+            "place": "Sarjapur, Bangalore",
+            "budget": "₹20L+",
+            "style": "Luxury",
+            "stage": "PROPOSAL"
+          }
+        ],
+        "portfolio": [
+          {
+            "name": "Warm Modern Home",
+            "place": "Whitefield, Bangalore",
+            "type": "2BHK",
+            "budget": "₹8–10L",
+            "style": "Modern"
+          },
+          {
+            "name": "Earth & Stone Villa",
+            "place": "Sarjapur, Bangalore",
+            "type": "Villa",
+            "budget": "₹20–25L",
+            "style": "Luxury"
+          },
+          {
+            "name": "Quiet Minimal",
+            "place": "Indiranagar, Bangalore",
+            "type": "3BHK",
+            "budget": "₹12–15L",
+            "style": "Minimal"
+          }
+        ],
+        "siteUpdates": [
+          {
+            "title": "Kitchen installation",
+            "desc": "Base cabinets installed. Countertop measurement completed.",
+            "progress": 64,
+            "date": "06 Sep"
+          }
+        ],
+        "payments": [
+          {
+            "name": "Booking",
+            "amount": 50000,
+            "status": "Paid"
+          },
+          {
+            "name": "Design",
+            "amount": 100000,
+            "status": "Paid"
+          },
+          {
+            "name": "Production",
+            "amount": 250000,
+            "status": "Due"
+          },
+          {
+            "name": "Installation",
+            "amount": 300000,
+            "status": "Pending"
+          },
+          {
+            "name": "Final",
+            "amount": 160000,
+            "status": "Pending"
+          }
+        ],
+        "verification": [
+          {
+            "name": "Urban Form Studio",
+            "type": "Business verification",
+            "status": "Pending"
+          },
+          {
+            "name": "Line & Light",
+            "type": "Portfolio review",
+            "status": "Pending"
+          }
+        ],
+        "auth": {
+          "loggedIn": true,
+          "token": "E9FQ34aplc7AOe_RawS6R3-AMnW-vX45OYhvfj9130s",
+          "user": {
+            "id": "a3e8ea5f-7517-45e2-8d3e-8ad2e7465fd4",
+            "name": "Harsh",
+            "email": "harshhh1701@gmail.com",
+            "phone": "",
+            "role": "customer",
+            "status": "Active",
+            "studio": null
+          }
+        },
+        "users": [
+          {
+            "id": "demo-customer",
+            "name": "Aditi",
+            "email": "aditi@example.com",
+            "role": "customer",
+            "status": "Active"
+          },
+          {
+            "id": "demo-designer",
+            "name": "Rhea Kapoor",
+            "email": "studio@studionest.in",
+            "role": "designer",
+            "status": "Active"
+          },
+          {
+            "id": "demo-admin",
+            "name": "InteriorHub Admin",
+            "email": "admin@interiorhub.in",
+            "role": "admin",
+            "status": "Active"
+          }
+        ],
+        "designerProfile": {
+          "businessName": "Studio Nest",
+          "phone": "+91 98765 43210",
+          "services": [
+            "Full home interiors",
+            "Kitchen",
+            "Wardrobes",
+            "Lighting"
+          ],
+          "verified": {
+            "identity": true,
+            "business": true,
+            "portfolio": true,
+            "history": true
+          }
+        },
+        "activityLog": [],
+        "onboardingDone": false,
+        "authView": "signup",
+        "realtime": {
+          "connected": true
+        },
+        "authMethod": "email",
+        "selectedProjectId": "IH-2026-001",
+        "reminders": [],
+        "tempAuthRole": "designer"
+      },
+      "updatedAt": "2026-09-09T11:03:16.634Z"
+    }
+  },
+  "messages": [
+    {
+      "id": "m1788951669926",
+      "projectId": "IH-2026-001",
+      "from": "customer",
+      "text": "hello",
+      "attachments": [],
+      "references": [],
+      "createdAt": "2026-09-09T11:01:09.926Z",
+      "sender": {
+        "id": "a3e8ea5f-7517-45e2-8d3e-8ad2e7465fd4",
+        "name": "Harsh",
+        "role": "customer"
+      }
+    },
+    {
+      "id": "m1788951705508",
+      "projectId": "IH-2026-001",
+      "from": "customer",
+      "text": "hi",
+      "attachments": [],
+      "references": [],
+      "createdAt": "2026-09-09T11:01:45.508Z",
+      "sender": {
+        "id": "a3e8ea5f-7517-45e2-8d3e-8ad2e7465fd4",
+        "name": "Harsh",
+        "role": "customer"
+      }
+    }
+  ]
+}
